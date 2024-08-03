@@ -5,7 +5,7 @@ type propTypes = {
 const Logo = ({ ...props }: propTypes) => {
     return (
         <svg
-            viewBox='0 0 583.7 70.501'
+            viewBox='0 0 583.7 104.501'
             xmlns='http://www.w3.org/2000/svg'
             {...props}
         >
