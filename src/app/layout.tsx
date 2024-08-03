@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Rubik } from 'next/font/google'
 import './globals.css'
+import Header from './components/Header'
 
 const rubik = Rubik({
     subsets: ['latin'],
@@ -15,7 +16,10 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <html lang='en' className={rubik.variable}>
-            <body className='bg-background bold min-h-screen'>{children}</body>
+            <body className='bg-background bold min-h-screen'>
+                <Header />
+                {/* {children} */}
+            </body>
         </html>
     )
 }
