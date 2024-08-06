@@ -10,7 +10,7 @@ const Header = () => {
 
     return (
         <section className='header'>
-            <div className='grid grid-flow-col grid-cols-[1fr_auto_1fr] lg:gap-24 lg:px-12 lg:py-2'>
+            <div className='z-10 fixed grid w-full grid-flow-col grid-cols-[1fr_auto_1fr] lg:gap-22 lg:px-12 lg:py-2'>
                 <div className='col-start-2 flex items-center lg:col-start-1'>
                     <Logo className='h-10 fill-black stroke-black pt-2' />
                 </div>
