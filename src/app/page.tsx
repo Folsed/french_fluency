@@ -3,9 +3,9 @@ import Image from 'next/image'
 export default function Home() {
     return (
         <main className='__content'>
-            <div className='absolute left-0 top-0 aspect-[2/3] w-full md:aspect-[16/9]'>
+            <div className='absolute left-0 top-0 aspect-[2/3] w-full h-screen md:aspect-[16/9]'>
                 <div
-                    className={`absolute left-0 top-0 -z-10 aspect-[2/3] w-full bg-[url('/123.jpg')] bg-cover bg-fixed bg-center md:aspect-[16/9]`}
+                    className={`absolute inset-0 -z-10  w-full bg-[url('/france.webp')] bg-cover bg-fixed bg-center`}
                 ></div>
                 <div className='absolute inset-0 z-[1] bg-[#00000082]'></div>
 
@@ -14,7 +14,7 @@ export default function Home() {
                         <div className='flex flex-col items-center gap-2'>
                             <h1 className='text-2xl sm:text-3xl lg:text-4xl xl:text-5xl'>Екатерина Безрукова</h1>
                             <p className='text-lg sm:text-xl lg:text-2xl xl:text-3xl'>
-                                Языковой наставник всех эммигрантов
+                            Преподаватель французского 
                             </p>
                         </div>
                         <div className='flex items-center justify-center'>
