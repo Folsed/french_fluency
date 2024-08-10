@@ -2,11 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+@layer base {
+    :root {
+        --font: #dadada;
+        --font-hover: #ffffff;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
+        --font: #dadada;
+        --font-hover: #ffffff;
     }
 }
 
