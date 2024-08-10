@@ -3,9 +3,9 @@ import Image from 'next/image'
 export default function Home() {
     return (
         <main className='__content'>
-            <div className='absolute left-0 top-0 aspect-[2/3] w-full md:aspect-[16/9]'>
+            <div className='absolute left-0 top-0 aspect-[2/3] w-full h-screen md:aspect-[16/9]'>
                 <div
-                    className={`absolute left-0 top-0 -z-10 aspect-[2/3] w-full bg-[url('/france.webp')] bg-cover bg-fixed bg-center md:aspect-[16/9]`}
+                    className={`absolute inset-0 -z-10  w-full bg-[url('/france.webp')] bg-cover bg-fixed bg-center`}
                 ></div>
                 <div className='absolute inset-0 z-[1] bg-[#00000082]'></div>
 
