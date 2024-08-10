@@ -15,11 +15,15 @@ const config: Config = {
                 'welcome-gradient':
                     'linear-gradient(to bottom,#0000 80%, #fff 100%)',
             },
-            keyframes: {
-               
-            },
+            keyframes: {},
             animation: {
                 progress: 'progress .5s linear',
+            },
+            colors: {
+                font: {
+                    DEFAULT: 'var(--font)',
+                    hover: 'var(--font-hover)',
+                },
             },
         },
     },
