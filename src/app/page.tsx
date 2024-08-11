@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 export default function Home() {
     return (
         <main className='__content'>
@@ -11,7 +9,7 @@ export default function Home() {
 
                 <div className='relative z-[2] m-auto flex h-full max-w-6xl select-none items-center justify-center text-white'>
                     <div className='flex flex-col gap-8'>
-                        <div className='flex flex-col items-center gap-2'>
+                        <div className='flex flex-col items-center gap-6'>
                             <h1 className='text-2xl sm:text-3xl lg:text-4xl xl:text-5xl'>Екатерина Безрукова</h1>
                             <p className='text-lg sm:text-xl lg:text-2xl xl:text-3xl'>
                             Преподаватель французского 
