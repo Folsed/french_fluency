@@ -4,7 +4,7 @@ import WelcomeCanvas from './components/WelcomeCanvas'
 export default function Home() {
     return (
         <main className='__content'>
-            <div className='grid grid-flow-row gap-12'>
+            <div className='flex flex-col gap-24'>
                 <WelcomeCanvas />
                 <ContentCards/>
             </div>
