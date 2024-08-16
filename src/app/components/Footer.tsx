@@ -80,7 +80,7 @@ const Footer = () => {
 
                 <div className='w-full bg-black/5 p-4 text-center'>
                     © 2024 Copyright:
-                    <a href='https://tw-elements.com/'>KaterynaTracher</a>
+                    <a href='https://tw-elements.com/'>KaterynaTeacher</a>
                 </div>
             </div>
         </section>
