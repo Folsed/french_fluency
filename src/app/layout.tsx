@@ -3,6 +3,7 @@ import { Merriweather } from 'next/font/google'
 
 import './globals.css'
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 const merriweather = Merriweather({
     weight: '300',
@@ -18,9 +19,12 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <html lang='en' className={merriweather.variable}>
-            <body className='min-h-screen h-[2000px]'>
-                <Header />
-                {children}
+            <body className='h-full'>
+                <div className='flex min-h-screen flex-col'>
+                    <Header />
+                    <div className='flex-grow-[1]'>{children}</div>
+                    <Footer />
+                </div>
             </body>
         </html>
     )
