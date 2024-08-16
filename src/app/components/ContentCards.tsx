@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const ContentCard = () => {
     return (
-        <div className='relative mx-auto grid grid-flow-row grid-cols-1 gap-4 px-2 md:grid-cols-2 md:px-12 2xl:grid-cols-3'>
+        <div className='relative mx-auto grid grid-flow-row grid-cols-1 gap-4 px-2 md:grid-cols-2 md:px-12 2xl:grid-cols-3 items-end'>
             {Array(6)
                 .fill(null)
                 .map((item, key) => (
@@ -16,6 +16,7 @@ const ContentCard = () => {
                                 <Image
                                     className='h-96 w-full object-cover'
                                     src='/card.jpg'
+                                    priority
                                     height={700}
                                     width={900}
                                     alt='Nature scene'
