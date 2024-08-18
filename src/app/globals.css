@@ -6,7 +6,7 @@
     :root {
         --font: #dadada;
         --font-hover: #ffffff;
-        --background-color: #f3e8ff ;
+        --background-color: #f3e8ff;
     }
 }
 
@@ -24,4 +24,8 @@ body {
     .text-balance {
         text-wrap: balance;
     }
+}
+
+.scroll-blocked {
+    overflow: hidden;
 }
