@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <html lang='en' className={merriweather.variable}>
-            <body className='h-full'>
+            <body className='h-full bg-background'>
                 <div className='flex min-h-screen flex-col'>
                     <Header />
                     <div className='flex-grow-[1]'>{children}</div>

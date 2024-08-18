@@ -12,6 +12,9 @@ const config: Config = {
             fontFamily: {
                 sans: ['var(--font-merriweather)', ...fontFamily.sans],
             },
+            backgroundColor: {
+                background: 'var(--background-color)',
+            },
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                 'gradient-conic':
