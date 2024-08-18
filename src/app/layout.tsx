@@ -1,9 +1,13 @@
+import './globals.css'
 import type { Metadata } from 'next'
 import { Merriweather } from 'next/font/google'
-
-import './globals.css'
-import Header from './components/Header'
+import Providers from '@/providers/Providers'
+import Header from './components/header/Header'
 import Footer from './components/Footer'
+
+interface LayoutProps {
+    children: React.ReactNode
+}
 
 const merriweather = Merriweather({
     weight: '300',
@@ -16,15 +20,17 @@ export const metadata: Metadata = {
     description: '',
 }
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+const RootLayout: React.FC<LayoutProps> = ({ children }) => {
     return (
         <html lang='en' className={merriweather.variable}>
-            <body className='h-full bg-background'>
-                <div className='flex min-h-screen flex-col'>
-                    <Header />
-                    <div className='flex-grow-[1]'>{children}</div>
-                    <Footer />
-                </div>
+            <body className='bg-background h-full'>
+                <Providers>
+                    <div className='relative flex min-h-screen flex-col'>
+                        <Header />
+                        <div className='flex-grow-[1]'>{children}</div>
+                        <Footer />
+                    </div>
+                </Providers>
             </body>
         </html>
     )
