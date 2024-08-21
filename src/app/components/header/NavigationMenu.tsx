@@ -12,13 +12,13 @@ const NavigationMenu = () => {
     return (
         <div className='__navigation_menu lg:hidden'>
             <button
-                className='flex items-center p-2'
-                onClick={() => setModalIs('opened')}
+                className='flex items-center p-2 '
+                onClick={() => setModalIs('nav-menu')}
             >
-                <HiMenu size={32} fill='white' />
+                <HiMenu size={32} className='fill-font hover:fill-font-hover transition-colors duration-200'/>
             </button>
             <div
-                className={`absolute bottom-0 left-0 right-0 top-12 z-20 h-screen bg-[#000000] ${modalIs === 'opened' ? 'opacity-100' : 'opacity-0'} transition-opacity duration-200`}
+                className={`absolute bottom-0 left-0 right-0 top-12 z-20 h-screen bg-[#000000] ${modalIs === 'nav-menu' ? 'opacity-100' : 'opacity-0'} transition-opacity duration-200`}
             >
                 <div className='h-full w-full text-font flex flex-col justify-center items-center'>
                     {headerTabs.map((item, _) => (

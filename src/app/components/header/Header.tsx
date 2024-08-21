@@ -2,6 +2,7 @@ import Logo from '@/components/svgs/Logo'
 import { LuUser2 } from 'react-icons/lu'
 import NavigationMenu from './NavigationMenu'
 import Links from './Links'
+import UserMenu from './UserMenu'
 
 const Header = () => {
     return (
@@ -12,15 +13,7 @@ const Header = () => {
                 </div>
                 <NavigationMenu />
                 <Links />
-
-                <div className='__auth col-start-3 flex items-center justify-end'>
-                    <button
-                        className='stroke-font p-2 duration-200 hover:stroke-font-hover'
-                        title='Вход в профиль'
-                    >
-                        <LuUser2 size={32} stroke='inherit' />
-                    </button>
-                </div>
+                {/* <UserMenu /> */}
             </div>
         </section>
     )
