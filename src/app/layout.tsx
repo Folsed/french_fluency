@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import { Merriweather } from 'next/font/google'
 import Providers from '@/providers/Providers'
 import Header from './components/header/Header'
-import Footer from './components/Footer'
 
 interface LayoutProps {
     children: React.ReactNode
@@ -23,13 +22,10 @@ export const metadata: Metadata = {
 const RootLayout: React.FC<LayoutProps> = ({ children }) => {
     return (
         <html lang='en' className={merriweather.variable}>
-            <body className='bg-background h-full'>
+            <body className='h-full bg-background'>
                 <Providers>
-                    <div className='relative flex min-h-screen flex-col'>
-                        <Header />
-                        <div className='flex-grow-[1]'>{children}</div>
-                        <Footer />
-                    </div>
+                    <Header/>
+                    {children}
                 </Providers>
             </body>
         </html>
