@@ -13,7 +13,7 @@ const Header = () => {
                 </div>
                 <NavigationMenu />
                 <Links />
-                {/* <UserMenu /> */}
+                <UserMenu />
             </div>
         </section>
     )
