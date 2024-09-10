@@ -5,28 +5,51 @@ const ContentCard = () => {
     return (
         <div>
             <div className='py-10 text-center'>
-                <h1 className='font-bold text-3xl lg:text-4xl xl:text-5xl'>Мои курсы</h1>
+                <h1 className='text-3xl font-bold lg:text-4xl xl:text-5xl'>
+                    Мои курсы
+                </h1>
             </div>
-            <div className='relative mx-auto grid grid-flow-row grid-cols-1 items-end md:grid-cols-2'>
+            <div className='relative grid grid-flow-row grid-cols-1 md:grid-cols-2'>
                 {Array(6)
                     .fill(null)
                     .map((item, key) => (
                         <div
                             key={key}
-                            className='flex items-center justify-center p-4'
+                            className='flex items-center justify-center'
                         >
-                            <div className='w-full max-w-[720px] transform overflow-hidden rounded-xl bg-white shadow-2xl transition duration-300 hover:md:scale-105'>
-                                <div className='relative'>
-                                    <Image
-                                        className='h-96 w-full object-cover'
-                                        src='/card.jpg'
-                                        priority
-                                        height={700}
-                                        width={900}
-                                        alt='Nature scene'
-                                    />
+                            <div className='relative w-full transition duration-300 flex justify-center items-center px-12 py-48 lg:py-72 xl:py-96 bg-black'>
+                                <Image
+                                    className='z-[0] opacity-20'
+                                    src='/123.jpg'
+                                    layout='fill'
+                                    objectFit='cover'
+                                    priority
+                                    alt='Nature scene'
+                                />
+                                <div className='text-center z-[1] grid gap-6'>
+                                    <h2 className='text-2xl font-bold text-font-hover truncate'>
+                                        ЭКСКЛЮЗИВНЫЙ мастеркласс от
+                                        сертифицированного экзаменатора
+                                        DELF-DALF
+                                    </h2>
+                                    <p className='text-font-hover'>
+                                        Лекция в записи, где экзаменатор Надежда
+                                        Опашнюк раскрывает ВСЮ ПОДНАГОТНУЮ
+                                        языкового экзамена DELF и DALF.
+                                    </p>
                                 </div>
-                                <div className='p-6'>
+                            </div>
+                        </div>
+                    ))}
+            </div>
+        </div>
+    )
+}
+
+export default ContentCard
+
+{
+    /* <div className='p-6'>
                                     <h2 className='mb-2 text-2xl font-bold text-gray-800'>
                                         ЭКСКЛЮЗИВНЫЙ мастеркласс от
                                         сертифицированного экзаменатора
@@ -45,12 +68,5 @@ const ContentCard = () => {
                                             Подробнее
                                         </button>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-            </div>
-        </div>
-    )
+                                </div> */
 }
-export default ContentCard
