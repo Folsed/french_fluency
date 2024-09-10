@@ -1,4 +1,4 @@
 const page = () => {
-    return <div>About me</div>
+    return <div>фывфывфыв фывлыовпалыва ывад ыовда </div>
 }
 export default page

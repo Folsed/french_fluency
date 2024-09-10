@@ -10,7 +10,7 @@ const config: Config = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['var(--font-merriweather)', ...fontFamily.sans],
+                sans: ['var(--font-roboto)', ...fontFamily.sans],
             },
             backgroundColor: {
                 background: 'var(--background-color)',
