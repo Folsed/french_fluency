@@ -1,6 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Merriweather } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 import Providers from '@/providers/Providers'
 import Header from './components/header/Header'
 
@@ -8,10 +8,10 @@ interface LayoutProps {
     children: React.ReactNode
 }
 
-const merriweather = Merriweather({
-    weight: '300',
+const roboto = Roboto({
+    weight: '400',
     subsets: ['vietnamese'],
-    variable: '--font-merriweather',
+    variable: '--font-roboto',
 })
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 const RootLayout: React.FC<LayoutProps> = ({ children }) => {
     return (
-        <html lang='en' className={merriweather.variable}>
+        <html lang='en' className={roboto.variable}>
             <body className='h-full bg-background'>
                 <Providers>
                     <Header/>
