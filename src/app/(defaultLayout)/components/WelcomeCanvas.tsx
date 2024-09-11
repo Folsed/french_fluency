@@ -1,4 +1,12 @@
+'use client'
+
 const WelcomeCanvas = () => {
+    const handleClick = () => {
+        const element = document.getElementById('courses-grid')
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
     return (
         <div className='relative aspect-[2/3] h-screen w-full md:aspect-[16/9]'>
             <div
@@ -17,7 +25,10 @@ const WelcomeCanvas = () => {
                         </p>
                     </div>
                     <div className='flex items-center justify-center'>
-                        <button className='group relative rounded-lg px-6 py-3 font-bold text-white xl:px-8 xl:py-4'>
+                        <button
+                            className='group relative rounded-lg px-6 py-3 font-bold text-white xl:px-8 xl:py-4'
+                            onClick={handleClick}
+                        >
                             <span className='ease absolute inset-0 h-full w-full -translate-x-1 -translate-y-1 transform bg-purple-800 opacity-80 transition duration-300 group-hover:translate-x-0 group-hover:translate-y-0'></span>
                             <span className='ease absolute inset-0 h-full w-full translate-x-1 translate-y-1 transform bg-pink-800 opacity-80 mix-blend-screen transition duration-300 group-hover:translate-x-0 group-hover:translate-y-0'></span>
                             <span className='relative'>Мои курсы</span>

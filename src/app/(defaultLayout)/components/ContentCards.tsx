@@ -3,31 +3,31 @@ import Link from 'next/link'
 
 const ContentCard = () => {
     return (
-        <div>
-            <div className='py-10 text-center'>
+        <div id='courses-grid'>
+            <div className='py-12 text-center lg:py-16'>
                 <h1 className='text-3xl font-bold lg:text-4xl xl:text-5xl'>
                     Мои курсы
                 </h1>
             </div>
-            <div className='relative grid grid-flow-row grid-cols-1 md:grid-cols-2'>
-                {Array(6)
+            <div className='relative grid grid-flow-row auto-rows-[minmax(300px,auto)] grid-cols-1 md:grid-cols-2'>
+                {Array(5)
                     .fill(null)
                     .map((item, key) => (
                         <div
                             key={key}
-                            className='flex items-center justify-center'
+                            className='aspect-square h-full lg:aspect-[16/10]'
                         >
-                            <div className='relative w-full transition duration-300 flex justify-center items-center px-12 py-48 lg:py-72 xl:py-96 bg-black'>
+                            <button className='relative flex h-full w-full items-center justify-center bg-[#000000c5] px-12 transition duration-300 hover:bg-[#0000009b]'>
                                 <Image
-                                    className='z-[0] opacity-20'
+                                    className='z-[-1]'
                                     src='/123.jpg'
                                     layout='fill'
                                     objectFit='cover'
                                     priority
                                     alt='Nature scene'
                                 />
-                                <div className='text-center z-[1] grid gap-6'>
-                                    <h2 className='text-2xl font-bold text-font-hover truncate'>
+                                <div className='z-[1] grid gap-6 text-center'>
+                                    <h2 className='truncate text-2xl font-bold text-font-hover'>
                                         ЭКСКЛЮЗИВНЫЙ мастеркласс от
                                         сертифицированного экзаменатора
                                         DELF-DALF
@@ -38,7 +38,7 @@ const ContentCard = () => {
                                         языкового экзамена DELF и DALF.
                                     </p>
                                 </div>
-                            </div>
+                            </button>
                         </div>
                     ))}
             </div>
@@ -47,26 +47,3 @@ const ContentCard = () => {
 }
 
 export default ContentCard
-
-{
-    /* <div className='p-6'>
-                                    <h2 className='mb-2 text-2xl font-bold text-gray-800'>
-                                        ЭКСКЛЮЗИВНЫЙ мастеркласс от
-                                        сертифицированного экзаменатора
-                                        DELF-DALF, Надежды Опашнюк
-                                    </h2>
-                                    <p className='mb-4 text-gray-600'>
-                                        Лекция в записи, где экзаменатор Надежда
-                                        Опашнюк раскрывает ВСЮ ПОДНАГОТНУЮ
-                                        языкового экзамена DELF и DALF.
-                                    </p>
-                                    <div className='flex items-center justify-between'>
-                                        <span className='text-2xl font-bold text-gray-800'>
-                                            $9
-                                        </span>
-                                        <button className='rounded-lg bg-indigo-600 px-4 py-2 font-semibold text-white shadow-md transition duration-300 ease-in-out hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-75'>
-                                            Подробнее
-                                        </button>
-                                    </div>
-                                </div> */
-}
