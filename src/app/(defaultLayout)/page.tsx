@@ -6,7 +6,7 @@ export default function Home() {
         <main className='__content'>
             <div className='flex flex-col'>
                 <WelcomeCanvas />
-                <ContentCards/>
+                <ContentCards />
             </div>
         </main>
     )

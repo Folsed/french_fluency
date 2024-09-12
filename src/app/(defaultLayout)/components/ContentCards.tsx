@@ -26,7 +26,7 @@ const ContentCard = () => {
                                     priority
                                     alt='Nature scene'
                                 />
-                                <div className='z-[1] grid gap-6 text-center'>
+                                <div className='z-[1] grid gap-6 text-center lg:w-2/3'>
                                     <h2 className='truncate text-2xl font-bold text-font-hover'>
                                         ЭКСКЛЮЗИВНЫЙ мастеркласс от
                                         сертифицированного экзаменатора
