@@ -1,7 +1,6 @@
 'use client'
 import { WebNavigation } from '@/providers/NavigationProvider'
 import { LuUser2 } from 'react-icons/lu'
-import AuthModal from '../auth/AuthModal'
 import Link from 'next/link'
 
 const UserMenu = () => {
