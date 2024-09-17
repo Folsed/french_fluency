@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const ContentCard = () => {
     return (
-        <div id='courses-grid'>
+        <div id='courses-grid' className='mb-48'>
             <div className='py-12 text-center lg:py-16'>
                 <h1 className='text-3xl font-bold lg:text-4xl xl:text-5xl'>
                     Мои курсы

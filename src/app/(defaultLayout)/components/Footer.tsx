@@ -3,7 +3,7 @@ import { IoLogoInstagram } from 'react-icons/io'
 const Footer = () => {
     return (
         <section className='footer'>
-            <div className='mt-48 flex flex-col items-center bg-gradient-to-t from-purple-200  text-center'>
+            <div className='`mt-48 flex flex-col items-center bg-gradient-to-t from-purple-200  text-center'>
                 <div className='px-6 pt-6'>
                     <div className='mb-6 flex justify-center space-x-2'>
                         <a
