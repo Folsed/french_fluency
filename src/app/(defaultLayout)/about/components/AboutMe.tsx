@@ -1,101 +1,98 @@
 import Image from 'next/image'
+import { paragraphs } from './_paragraphs'
 
 const AboutMe = () => {
     return (
-        <div id='about' className='relative mt-16 overflow-hidden '>
-            <div className='mx-auto max-w-7xl'>
-                <div className='relative z-[1] pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32'>
-                    {/* <svg
-                        className='absolute inset-y-0 right-0 hidden h-full w-48 translate-x-1/2 transform text-black lg:block'
-                        fill='currentColor'
-                        viewBox='0 0 100 100'
-                        preserveAspectRatio='none'
-                        aria-hidden='true'
-                    >
-                        <polygon points='50,0 100,0 50,100 0,100'></polygon>
-                    </svg> */}
-
-                    <div className='pt-1'></div>
-
-                    <main className='mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28'>
-                        <div className='lg:text-left'>
-                            <h2 className='my-6 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-3xl md:text-4xl'>
-                                Пламенный bonjour
-                            </h2>
-
-                            <ul className='flex flex-col gap-6 text-lg'>
-                                <li>
-                                    Я — Катя, и преподаю французский язык даже
-                                    французам, сама до сих пор в шоке! 😨
-                                </li>
-                                <li>
-                                    100% моих студентов успешно сдают экзамены
-                                    DELF и TCF.
-                                </li>
-                                <li>
-                                    У меня нет «звезды во лбу» и «собственной
-                                    методики», потому что существуют опытные
-                                    методисты, которые разрабатывают
-                                    замечательные книги, которые я и использую.
-                                </li>
-                                <li>
-                                    Мои уроки проходят на интерактивной
-                                    онлайн-платформе, где у каждого ученика есть
-                                    собственный кабинет с его достижениями,
-                                    словарём и сохранёнными уроками.
-                                </li>
-                                <li>
-                                    В преподавании я использую новейшие методики
-                                    FLE, видео блогеров для изучения настоящей
-                                    речи, подкасты и мини-выпуски телепрограмм.
-                                </li>
-                                <li>
-                                    Учёба со мной — это не только полезно, но и
-                                    приятно. Мы становимся друзьями и даже ездим
-                                    друг к другу в гости. Теперь в каждом
-                                    уголочке Франции у меня есть друзья.
-                                </li>
-                                <li>
-                                    Если хочешь кайфовать от изучения
-                                    французского, n’hésite pas, вэлкам ту
-                                    Сан-Тропе, как говорится! ❤️
-                                </li>
-                            </ul>
-                        </div>
-                    </main>
-                </div>
-            </div>
-            <div className='lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2'>
+        <section className='w-full overflow-hidden'>
+            <div className='mx-auto w-full'>
+                {/* User Cover IMAGE */}
                 <Image
-                    className='h-fit w-full object-cover object-center sm:h-fit md:h-[500] lg:w-full lg:h-full [clip-path:polygon(15%_0,100%_0%,100%_100%,0%_100%)]'
-                    src='/about2.jpg'
-                    alt=''
-                    width={1080}
-                    height={1184}
-                    priority
+                    src='/about-cover.jpg'
+                    alt='User Cover'
+                    className='h-[12.5rem] w-full object-cover sm:h-[16rem] md:h-[19rem] lg:h-[22rem] xl:h-[25rem]'
+                    width={2000}
+                    height={1000}
                 />
+                {/* User Profile Image */}
+                <div className='mx-auto flex w-full justify-center'>
+                    <Image
+                        src='/about2.jpg'
+                        alt='User Profile'
+                        width={500}
+                        height={500}
+                        className='relative bottom-[5rem] h-[10rem] w-[10rem] rounded-full object-cover shadow-xl outline outline-2 outline-offset-2 outline-yellow-500 md:bottom-[6rem] md:h-[12rem] md:w-[12rem] lg:bottom-[8rem] lg:h-[16rem] lg:w-[16rem] xl:bottom-[7rem] xl:h-[16rem] xl:w-[16rem]'
+                    />
+                </div>
+
+                <section className='relative flex flex-col justify-center overflow-hidden'>
+                    <div className='mx-auto w-full max-w-7xl px-4 pb-48 md:px-6'>
+                        <div className='flex flex-col justify-center'>
+                            <div className='mx-auto w-full max-w-3xl'>
+                                <div className='relative space-y-8 before:absolute before:inset-0 before:ml-12 before:h-full before:w-0.5 before:-translate-x-px before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent md:before:mx-auto md:before:translate-x-0'>
+                                    {paragraphs.map((item, _) => (
+                                        <div
+                                            key={item.id}
+                                            className='is-active group relative flex items-center justify-center md:justify-normal md:odd:flex-row-reverse'
+                                        >
+                                            <div className='w-[calc(100%-4rem)] rounded border border-slate-200 bg-white p-4 shadow md:w-[calc(50%-2.5rem)]'>
+                                                <div className=''>
+                                                    {item.text}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </div>
+        </section>
     )
 }
 export default AboutMe
 
 {
-    /* <div className='mx-auto mt-10 max-w-7xl px-8 text-xl sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28'>
-                        <div className='lg:text-left md:px-8'>
-                            <h2 className='my-6 text-3xl font-extrabold text-gray-900 sm:text-3xl md:text-4xl'>
-                                Пламенный bonjour
-                            </h2>
-
-                            <ul className='flex flex-col gap-8 list-disc'>
-                                <li>Я — Катя, и преподаю французский язык даже французам, сама до сих пор в шоке! 😨</li>
-                                <li>100% моих студентов успешно сдают экзамены DELF и TCF.</li>
-                                <li>У меня нет «звезды во лбу» и «собственной методики», потому что существуют опытные методисты, которые разрабатывают замечательные книги, которые я и использую.</li>
-                                <li>Мои уроки проходят на интерактивной онлайн-платформе, где у каждого ученика есть собственный кабинет с его достижениями, словарём и сохранёнными уроками.</li>
-                                <li>В преподавании я использую новейшие методики FLE, видео блогеров для изучения настоящей речи, подкасты и мини-выпуски телепрограмм.</li>
-                                <li>Учёба со мной — это не только полезно, но и приятно. Мы становимся друзьями и даже ездим друг к другу в гости. Теперь в каждом уголочке Франции у меня есть друзья.</li>
-                                <li>Если хочешь кайфовать от изучения французского, n’hésite pas, вэлкам ту Сан-Тропе, как говорится! ❤️</li>
-                            </ul>
-                        </div>
-                    </div> */
+    /* <div className='relative -top-[2.2rem] mx-auto flex w-[92%] flex-col items-center justify-center gap-4 sm:-top-[3rem] sm:w-[96%] md:-top-[4rem] md:w-[84%] lg:-top-[6rem] lg:w-[80%] xl:-top-[6rem] xl:w-[50%]'>
+                    <h1 className='text-center font-serif text-4xl text-gray-800'>
+                        Пламенный Bonjour!
+                    </h1>
+                    <ul className='text-md mt-6 flex w-full flex-col gap-6 text-pretty text-justify text-lg'>
+                        <li>
+                            Я — Катя, и преподаю французский язык даже
+                            французам, сама до сих пор в шоке! 😨
+                        </li>
+                        <li>
+                            100% моих студентов успешно сдают экзамены DELF и
+                            TCF.
+                        </li>
+                        <li>
+                            У меня нет «звезды во лбу» и «собственной методики»,
+                            потому что существуют опытные методисты, которые
+                            разрабатывают замечательные книги, которые я и
+                            использую.
+                        </li>
+                        <li>
+                            Мои уроки проходят на интерактивной
+                            онлайн-платформе, где у каждого ученика есть
+                            собственный кабинет с его достижениями, словарём и
+                            сохранёнными уроками.
+                        </li>
+                        <li>
+                            В преподавании я использую новейшие методики FLE,
+                            видео блогеров для изучения настоящей речи, подкасты
+                            и мини-выпуски телепрограмм.
+                        </li>
+                        <li>
+                            Учёба со мной — это не только полезно, но и приятно.
+                            Мы становимся друзьями и даже ездим друг к другу в
+                            гости. Теперь в каждом уголочке Франции у меня есть
+                            друзья.
+                        </li>
+                        <li>
+                            Если хочешь кайфовать от изучения французского,
+                            n’hésite pas, вэлкам ту Сан-Тропе, как говорится! ❤️
+                        </li>
+                    </ul>
+                </div> */
 }
