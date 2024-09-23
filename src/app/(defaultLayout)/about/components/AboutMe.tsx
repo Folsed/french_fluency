@@ -6,13 +6,16 @@ const AboutMe = () => {
         <section className='w-full overflow-hidden'>
             <div className='mx-auto w-full'>
                 {/* User Cover IMAGE */}
-                <Image
-                    src='/about-cover.jpg'
-                    alt='User Cover'
-                    className='h-[12.5rem] w-full object-cover sm:h-[16rem] md:h-[19rem] lg:h-[22rem] xl:h-[25rem]'
-                    width={2000}
-                    height={1000}
-                />
+                <div className='relative h-[12.5rem] w-full bg-gray-900 sm:h-[16rem] md:h-[19rem] lg:h-[22rem] xl:h-[25rem]'>
+                    <Image
+                        src='/about-cover.jpg'
+                        alt='User Cover'
+                        className='w-full object-cover'
+                        fill
+                        // priority
+                        loading='lazy'
+                    />
+                </div>
                 {/* User Profile Image */}
                 <div className='mx-auto flex w-full justify-center'>
                     <Image
@@ -20,7 +23,8 @@ const AboutMe = () => {
                         alt='User Profile'
                         width={500}
                         height={500}
-                        className='relative bottom-[5rem] h-[10rem] w-[10rem] rounded-full object-cover shadow-xl outline outline-2 outline-offset-2 outline-yellow-500 md:bottom-[6rem] md:h-[12rem] md:w-[12rem] lg:bottom-[8rem] lg:h-[16rem] lg:w-[16rem] xl:bottom-[7rem] xl:h-[16rem] xl:w-[16rem]'
+                        priority
+                        className='relative bottom-[5rem] h-[10rem] w-[10rem] rounded-full bg-gray-900 object-cover shadow-xl outline outline-2 outline-offset-2 outline-yellow-500 md:bottom-[6rem] md:h-[12rem] md:w-[12rem] lg:bottom-[8rem] lg:h-[16rem] lg:w-[16rem] xl:bottom-[7rem] xl:h-[16rem] xl:w-[16rem]'
                     />
                 </div>
 
@@ -32,7 +36,7 @@ const AboutMe = () => {
                                     {paragraphs.map((item, _) => (
                                         <div
                                             key={item.id}
-                                            className='is-active group relative flex items-center justify-center md:justify-normal md:odd:flex-row-reverse'
+                                            className='relative flex items-center justify-center md:justify-normal md:odd:flex-row-reverse'
                                         >
                                             <div className='w-[calc(100%-4rem)] rounded border border-slate-200 bg-white p-4 shadow md:w-[calc(50%-2.5rem)]'>
                                                 <div className=''>
