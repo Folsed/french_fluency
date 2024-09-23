@@ -6,13 +6,14 @@ const AboutMe = () => {
         <section className='w-full overflow-hidden'>
             <div className='mx-auto w-full'>
                 {/* User Cover IMAGE */}
-                <div className='relative h-[12.5rem] w-full sm:h-[16rem] md:h-[19rem] lg:h-[22rem] xl:h-[25rem]'>
+                <div className='relative h-[12.5rem] w-full bg-gray-900 sm:h-[16rem] md:h-[19rem] lg:h-[22rem] xl:h-[25rem]'>
                     <Image
                         src='/about-cover.jpg'
                         alt='User Cover'
                         className='w-full object-cover'
                         fill
-                        priority
+                        // priority
+                        loading='lazy'
                     />
                 </div>
                 {/* User Profile Image */}
@@ -23,7 +24,7 @@ const AboutMe = () => {
                         width={500}
                         height={500}
                         priority
-                        className='relative bottom-[5rem] h-[10rem] w-[10rem] rounded-full object-cover shadow-xl outline outline-2 outline-offset-2 outline-yellow-500 md:bottom-[6rem] md:h-[12rem] md:w-[12rem] lg:bottom-[8rem] lg:h-[16rem] lg:w-[16rem] xl:bottom-[7rem] xl:h-[16rem] xl:w-[16rem]'
+                        className='relative bottom-[5rem] h-[10rem] w-[10rem] rounded-full bg-gray-900 object-cover shadow-xl outline outline-2 outline-offset-2 outline-yellow-500 md:bottom-[6rem] md:h-[12rem] md:w-[12rem] lg:bottom-[8rem] lg:h-[16rem] lg:w-[16rem] xl:bottom-[7rem] xl:h-[16rem] xl:w-[16rem]'
                     />
                 </div>
 

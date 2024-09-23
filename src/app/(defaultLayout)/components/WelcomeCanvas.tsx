@@ -1,5 +1,7 @@
 'use client'
 
+import Image from "next/image"
+
 const WelcomeCanvas = () => {
     const handleClick = () => {
         const element = document.getElementById('courses-grid')
@@ -10,7 +12,7 @@ const WelcomeCanvas = () => {
     return (
         <div className='relative aspect-[2/3] h-screen w-full md:aspect-[16/9]'>
             <div
-                className={`absolute inset-0 -z-10 w-full bg-[url('/france.webp')] bg-cover bg-fixed bg-center`}
+                className={`absolute inset-0 -z-10 w-full bg-[url('/main.webp')] bg-cover bg-fixed bg-center bg-gray-900`}
             ></div>
             <div className='absolute inset-0 z-[1] bg-[#00000082]'></div>
 
