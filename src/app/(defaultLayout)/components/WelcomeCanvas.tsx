@@ -9,6 +9,8 @@ const WelcomeCanvas = () => {
             element.scrollIntoView({ behavior: 'smooth' })
         }
     }
+
+    
     return (
         <div className='relative aspect-[2/3] h-screen w-full md:aspect-[16/9]'>
             <div
