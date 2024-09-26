@@ -1,4 +1,5 @@
 import ContentCards from './components/ContentCards'
+import Reviews from './components/reviews/Reviews'
 import WelcomeCanvas from './components/WelcomeCanvas'
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
             <div className='flex flex-col'>
                 <WelcomeCanvas />
                 <ContentCards />
+                <Reviews/>
             </div>
         </main>
     )
