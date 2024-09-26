@@ -8,7 +8,7 @@ interface LayoutProps {
 const defaultLayout: React.FC<LayoutProps> = ({ children }) => {
     return (
         <div>
-            <div className='relative flex min-h-screen flex-col'>
+            <div className='relative flex min-h-screen flex-col scrollbar-settings '>
                 <div className='flex-grow-[1]'>{children}</div>
                 <Footer />
             </div>

@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import Providers from '@/providers/Providers'
 import Header from './components/header/Header'
+import BackToTop from './components/BackToTop'
 
 interface LayoutProps {
     children: React.ReactNode
@@ -27,6 +28,7 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
                     <Header/>
                     {children}
                 </Providers>
+                <BackToTop/>
             </body>
         </html>
     )

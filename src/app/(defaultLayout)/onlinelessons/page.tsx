@@ -1,4 +1,4 @@
 const page = () => {
-    return <div>Online lessons</div>
+    return <div className="mt-20">Online lessons</div>
 }
 export default page
