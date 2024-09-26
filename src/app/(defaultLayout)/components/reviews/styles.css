@@ -7,10 +7,6 @@
 #sw-slide {
     width: 400px;
     height: 100%;
-    opacity: 0.2;
-    transition: opacity .5s ease-in-out;
+    
 }
 
-/* #sw-slide.swiper-slide-active {
-    opacity: 1;
-} */
