@@ -13,6 +13,7 @@ const ReviewsCarousel = () => {
     const swiperRef = useRef(null)
     const vidRef = useRef<HTMLVideoElement[]>([])
     const [activeIndex, setActiveIndex] = useState<number>(0) // State for active slide index
+    const [isVisible, setIsVisible] = useState<boolean>(false) // State to track visibility
 
     const onSwiper = (swiper: SwiperType | any) => {
         swiperRef.current = swiper
@@ -23,19 +24,47 @@ const ReviewsCarousel = () => {
     }
 
     useEffect(() => {
-        // Play the active video and pause others
-        vidRef.current.forEach((vid: HTMLVideoElement, index: number) => {
-            if (vid) {
-                if (index === activeIndex) {
-                    vid.play()
-                    console.log(vid)
-                } else {
+        // Play the active video and pause others if visible
+        if (isVisible) {
+            vidRef.current.forEach((vid: HTMLVideoElement, index: number) => {
+                if (vid) {
+                    if (index === activeIndex) {
+                        vid.play()
+                        console.log(vid)
+                    } else {
+                        vid.pause()
+                    }
+                }
+            })
+        } else {
+            // Pause all videos when not visible
+            vidRef.current.forEach((vid: HTMLVideoElement) => {
+                if (vid) {
                     vid.pause()
                 }
-            }
-        })
-    }, [activeIndex])
+            })
+        }
+    }, [activeIndex, isVisible])
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsVisible(entry.isIntersecting)
+            },
+            { threshold: 0.1 } // Adjust this value to control when to trigger visibility
+        )
+
+        const carouselElement = swiperRef.current?.el
+        if (carouselElement) {
+            observer.observe(carouselElement)
+        }
+
+        return () => {
+            if (carouselElement) {
+                observer.unobserve(carouselElement)
+            }
+        }
+    }, [])
 
     return (
         <Swiper
@@ -68,12 +97,12 @@ const ReviewsCarousel = () => {
                         }}
                         src={item.src}
                         loop
-                        // controls
-                        muted
+                        // muted
                     />
                 </SwiperSlide>
             ))}
         </Swiper>
     )
 }
+
 export default ReviewsCarousel
