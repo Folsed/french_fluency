@@ -1,12 +1,46 @@
 .mySwiper.swiper {
     width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
 }
 
 #sw-slide {
-    width: 400px;
+    width: 25%;
     height: 100%;
-    
+    padding: 0;
 }
 
+@media (min-width: 640px) {
+    #sw-slide {
+        width: 50%;
+    }
+}
+@media (min-width: 768px) {
+    #sw-slide {
+        width: 40%;
+        margin-right: 0px;
+    }
+}
+@media (min-width: 1024px) {
+    #sw-slide {
+        width: 35%;
+        margin-right: 25px;
+    }
+}
+@media (min-width: 1280px) {
+    #sw-slide {
+        width: 30%;
+        margin-right: 30px;
+    }
+}
+@media (min-width: 1536px) {
+    #sw-slide {
+        width: 25%;
+        margin-right: 40px;
+    }
+}
+@media (max-width: 640px) {
+    #sw-slide {
+        width: 70%;
+        margin-right: -20px;
+    }
+}

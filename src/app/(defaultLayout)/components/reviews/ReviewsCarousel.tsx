@@ -4,7 +4,7 @@ import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/pagination'
 import './styles.css'
-import { EffectCoverflow, Pagination } from 'swiper/modules'
+import { EffectCoverflow } from 'swiper/modules'
 import { revs } from './_revs'
 import { useEffect, useRef, useState } from 'react'
 import { Swiper as SwiperType } from 'swiper/types'
@@ -74,7 +74,7 @@ const ReviewsCarousel = () => {
             effect={'coverflow'}
             centeredSlides={true}
             slidesPerView={'auto'}
-            spaceBetween={30}
+            // spaceBetween={40}
             coverflowEffect={{
                 rotate: 70,
                 stretch: 0,
@@ -83,8 +83,7 @@ const ReviewsCarousel = () => {
                 scale: 0.9,
                 slideShadows: true,
             }}
-            modules={[EffectCoverflow, Pagination]}
-            pagination
+            modules={[EffectCoverflow]}
             className='mySwiper'
         >
             {revs.map((item, index) => (
