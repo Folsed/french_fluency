@@ -1,8 +1,7 @@
 'use client'
-import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
-import 'swiper/css/pagination'
 import './styles.css'
 import { EffectCoverflow } from 'swiper/modules'
 import { revs } from './_revs'
@@ -30,7 +29,6 @@ const ReviewsCarousel = () => {
                 if (vid) {
                     if (index === activeIndex) {
                         vid.play()
-                        console.log(vid)
                     } else {
                         vid.pause()
                     }
@@ -74,7 +72,6 @@ const ReviewsCarousel = () => {
             effect={'coverflow'}
             centeredSlides={true}
             slidesPerView={'auto'}
-            // spaceBetween={40}
             coverflowEffect={{
                 rotate: 70,
                 stretch: 0,
@@ -89,6 +86,7 @@ const ReviewsCarousel = () => {
             {revs.map((item, index) => (
                 <SwiperSlide id='sw-slide' key={item.id}>
                     <video
+                        className='select-none'
                         ref={(el) => {
                             if (el) {
                                 vidRef.current[index] = el

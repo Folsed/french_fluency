@@ -23,10 +23,10 @@ const ContentCard = async () => {
                     >
                         <button className='relative flex h-full w-full items-center justify-center bg-[#000000c5] px-12 transition duration-300 hover:bg-[#0000009b]'>
                             <Image
-                                className='z-[-1] bg-gray-900'
+                                className='z-[-1] bg-gray-900 object-cover'
                                 src={item.image}
-                                layout='fill'
-                                objectFit='cover'
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 priority
                                 alt='Nature scene'
                             />
