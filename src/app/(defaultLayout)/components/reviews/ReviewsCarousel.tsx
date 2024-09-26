@@ -10,7 +10,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Swiper as SwiperType } from 'swiper/types'
 
 const ReviewsCarousel = () => {
-    const swiperRef = useRef(null)
+    const swiperRef = useRef<any>(null)
     const vidRef = useRef<HTMLVideoElement[]>([])
     const [activeIndex, setActiveIndex] = useState<number>(0) // State for active slide index
     const [isVisible, setIsVisible] = useState<boolean>(false) // State to track visibility
@@ -97,7 +97,7 @@ const ReviewsCarousel = () => {
                         }}
                         src={item.src}
                         loop
-                        // muted
+                        muted
                     />
                 </SwiperSlide>
             ))}
