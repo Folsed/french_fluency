@@ -92,10 +92,13 @@ const ReviewsCarousel = () => {
                                 vidRef.current[index] = el
                             }
                         }}
-                        src={item.src}
                         loop
                         muted
-                    />
+                        preload='metadata'
+                    >
+                        <source src={item.src} type='video/mp4' />
+                        Your browser does not support the video tag.
+                    </video>
                 </SwiperSlide>
             ))}
         </Swiper>
