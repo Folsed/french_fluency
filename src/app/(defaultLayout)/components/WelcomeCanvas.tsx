@@ -1,8 +1,8 @@
 'use client'
-
-import Image from "next/image"
+import Image from 'next/image'
 
 const WelcomeCanvas = () => {
+
     const handleClick = () => {
         const element = document.getElementById('courses-grid')
         if (element) {
@@ -10,13 +10,21 @@ const WelcomeCanvas = () => {
         }
     }
 
-    
     return (
         <div className='relative aspect-[2/3] h-screen w-full md:aspect-[16/9]'>
-            <div
-                className={`absolute inset-0 -z-10 w-full bg-[url('/main.webp')] bg-cover bg-fixed bg-center bg-gray-900`}
-            ></div>
-            <div className='absolute inset-0 z-[1] bg-[#00000082]'></div>
+            <div className='absolute -z-10 h-full w-full [clip-path:inset(0_0_0_0)] bg-gray-900'>
+                <div className='fixed left-0 top-0 h-full w-full'>
+                    <Image
+                        src={'/main.webp'}
+                        fill
+                        sizes="100vw"
+                        className='object-cover'
+                        priority
+                        alt=''
+                    />
+                </div>
+                <div className='absolute inset-0 z-[1] bg-[#00000082]'></div>
+            </div>
 
             <div className='relative z-[2] m-auto flex h-full max-w-6xl select-none items-center justify-center text-white'>
                 <div className='flex flex-col gap-8'>
