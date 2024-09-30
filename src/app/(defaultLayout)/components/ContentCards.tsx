@@ -21,7 +21,7 @@ const ContentCard = async () => {
                         key={key}
                         className='aspect-square h-full lg:aspect-[16/10]'
                     >
-                        <button className='relative flex h-full w-full items-center justify-center bg-[#000000c5] px-12 transition duration-300 hover:bg-[#0000009b]'>
+                        <Link href={item.url} className='relative flex h-full w-full items-center justify-center bg-[#000000c5] px-12 transition duration-300 hover:bg-[#0000009b]'>
                             <Image
                                 className='z-[-1] bg-gray-900 object-cover'
                                 src={item.image}
@@ -38,7 +38,7 @@ const ContentCard = async () => {
                                     {item.synopsis}
                                 </p>
                             </div>
-                        </button>
+                        </Link>
                     </div>
                 ))}
             </div>
