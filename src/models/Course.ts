@@ -6,6 +6,7 @@ interface ICourse extends Document {
     language: string
     price: number | object
     image: string
+    url: string
 }
 
 const PostSchema: Schema = new Schema({
@@ -14,6 +15,7 @@ const PostSchema: Schema = new Schema({
     language: { type: String, required: true },
     price: { type: Number, required: true },
     image: { type: String, required: true },
+    url: { type: String, required: true },
 })
 
 const Course: Model<ICourse> =

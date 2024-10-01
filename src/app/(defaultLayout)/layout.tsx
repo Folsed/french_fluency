@@ -1,17 +1,18 @@
 import Footer from './components/Footer'
-import Header from '../components/header/Header'
 
 interface LayoutProps {
     children: React.ReactNode
+    courses: React.ReactNode
 }
 
-const defaultLayout: React.FC<LayoutProps> = ({ children }) => {
+const defaultLayout: React.FC<LayoutProps> = ({ children, courses }) => {
     return (
         <div>
-            <div className='relative flex min-h-screen flex-col scrollbar-settings '>
+            <div className='scrollbar-settings relative flex min-h-screen flex-col'>
                 <div className='flex-grow-[1]'>{children}</div>
                 <Footer />
             </div>
+            {courses}
         </div>
     )
 }
