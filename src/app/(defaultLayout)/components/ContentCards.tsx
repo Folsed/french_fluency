@@ -21,12 +21,16 @@ const ContentCard = async () => {
                         key={key}
                         className='aspect-square h-full lg:aspect-[16/10]'
                     >
-                        <Link href={item.url} className='relative flex h-full w-full items-center justify-center bg-[#000000c5] px-12 transition duration-300 hover:bg-[#0000009b]'>
+                        <Link
+                            href={`/course`}
+                            scroll={false}
+                            className='relative flex h-full w-full items-center justify-center bg-[#000000c5] px-12 transition duration-300 hover:bg-[#0000009b]'
+                        >
                             <Image
                                 className='z-[-1] bg-gray-900 object-cover'
                                 src={item.image}
                                 fill
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                                 priority
                                 alt='Nature scene'
                             />
@@ -34,7 +38,7 @@ const ContentCard = async () => {
                                 <h2 className='truncate text-2xl font-bold text-font-hover'>
                                     {item.title}
                                 </h2>
-                                <p className='text-font-hover line-clamp-3'>
+                                <p className='line-clamp-3 text-font-hover'>
                                     {item.synopsis}
                                 </p>
                             </div>
