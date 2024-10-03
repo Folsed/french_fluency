@@ -1,5 +1,4 @@
 import ContentCards from './components/content-card/ContentCards'
-import { DragCloseDrawerExample } from './components/content-card/DragCloseDrawer'
 import Reviews from './components/reviews/Reviews'
 import WelcomeCanvas from './components/WelcomeCanvas'
 
