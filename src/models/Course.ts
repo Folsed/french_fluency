@@ -1,15 +1,18 @@
+import { ObjectId } from 'mongodb'
 import mongoose, { Document, Model, Schema } from 'mongoose'
 
-interface ICourse extends Document {
+export interface ICourse extends Document {
+    _id: ObjectId
     title: string
     synopsis: string
     language: string
-    price: number | object
+    price: number
     image: string
     url: string
 }
 
 const PostSchema: Schema = new Schema({
+    _id: { type: ObjectId, required: true },
     title: { type: String, required: true },
     synopsis: { type: String, required: true },
     language: { type: String, required: true },
