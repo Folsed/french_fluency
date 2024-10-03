@@ -2,7 +2,7 @@ import { SiMaildotru } from 'react-icons/si'
 import { RiLockLine } from 'react-icons/ri'
 import Image from 'next/image'
 
-const page = () => {
+const LoginPage = () => {
     return (
         <div className='flex h-screen w-full items-center justify-center bg-black bg-cover bg-no-repeat'>
             <div className='absolute inset-0'>
@@ -55,4 +55,4 @@ const page = () => {
         </div>
     )
 }
-export default page
+export default LoginPage

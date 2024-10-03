@@ -1,4 +1,4 @@
-const page = () => {
+const RegisterPage = () => {
     return <div>page</div>
 }
-export default page
+export default RegisterPage

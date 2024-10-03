@@ -4,7 +4,7 @@ interface LayoutProps {
     children: React.ReactNode
 }
 
-const defaultLayout: React.FC<LayoutProps> = ({ children }) => {
+const DefaultLayout: React.FC<LayoutProps> = ({ children }) => {
     return (
         <div>
             <div className='scrollbar-settings relative flex min-h-screen flex-col'>
@@ -15,4 +15,4 @@ const defaultLayout: React.FC<LayoutProps> = ({ children }) => {
     )
 }
 
-export default defaultLayout
+export default DefaultLayout
