@@ -1,10 +1,10 @@
 import mongoose, { Document, Model, Schema } from 'mongoose'
 
-interface ICourse extends Document {
+export interface ICourse extends Document {
     title: string
     synopsis: string
     language: string
-    price: number | object
+    price: number
     image: string
     url: string
 }
