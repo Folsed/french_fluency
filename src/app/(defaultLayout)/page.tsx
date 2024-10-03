@@ -10,7 +10,6 @@ export default function Home() {
                 <WelcomeCanvas />
                 <ContentCards />
                 <Reviews />
-                <DragCloseDrawerExample/>
             </div>
         </main>
     )

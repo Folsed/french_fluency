@@ -4,7 +4,6 @@ import { MdOutlineEuro } from 'react-icons/md'
 
 const CardDetails = ({ data }: { data: ICourse }) => {
     const paragraphs = data.synopsis.split(/\n\n|\n-/)
-    console.log(paragraphs)
     return (
         <div className='mb-24 flex flex-col gap-8 px-4'>
             <div className='max-w-2xl space-y-4 px-2 md:mx-auto'>
