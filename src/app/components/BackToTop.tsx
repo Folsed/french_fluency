@@ -11,7 +11,6 @@ const BackToTop = () => {
 
         // Check if the body has the 'scroll-blocked' class
         if (body.classList.contains('scroll-blocked')) {
-            console.log('have scroll')
             buttonRef.current?.classList.add('hidden')
         } else {
             if (

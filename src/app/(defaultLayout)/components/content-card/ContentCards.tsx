@@ -1,13 +1,16 @@
 import clientPromise from '@/config/database/mongodb'
 import Course from '@/models/Course'
-import Image from 'next/image'
-import Link from 'next/link'
 import SingleCard from './SingleCard'
 
 const ContentCards = async () => {
     await clientPromise
 
     const data = await Course.find({}).lean()
+
+    const courses = data.map((item) => ({
+        ...item,
+        _id: item._id.toString(), // Convert ObjectId to string
+    }))
 
     return (
         <div id='courses-grid'>
@@ -17,7 +20,7 @@ const ContentCards = async () => {
                 </h1>
             </div>
             <div className='relative grid grid-flow-row auto-rows-[minmax(300px,auto)] grid-cols-1 md:grid-cols-2'>
-                {data.map((item, key) => (
+                {courses.map((item, key) => (
                     <SingleCard data={item} key={key} />
                 ))}
             </div>
