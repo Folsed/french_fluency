@@ -19,7 +19,7 @@ const SingleCard: React.FC<IData> = ({ data }) => {
 
     return (
         <div
-            className={`aspect-square h-full transition-all duration-500 lg:aspect-[16/10]`}
+            className={`aspect-square h-full transition-colors duration-500 lg:aspect-[16/10]`}
         >
             <button
                 onClick={handleOpen}
