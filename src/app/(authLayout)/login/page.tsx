@@ -20,7 +20,6 @@ const LoginPage = () => {
         })
         if (res?.error) {
             setError(res.error as string)
-            console.log(error)
         }
         if (res?.ok) {
             return router.push('/')
