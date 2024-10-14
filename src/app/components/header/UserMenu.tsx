@@ -23,7 +23,7 @@ const UserMenu = () => {
                     className='stroke-font p-2 duration-200 hover:stroke-font-hover'
                     title='Вход в профиль'
                 >
-                    <LuUser2 size={32} stroke='inherit' />
+                    <LuUser2 size={28} stroke='inherit' />
                 </Link>
             )}
         </div>

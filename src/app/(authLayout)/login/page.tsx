@@ -24,6 +24,7 @@ const LoginPage = () => {
             toast(res.error)
         }
         if (res?.ok) {
+            toast('Вход выполнен успешно!')
             return router.push('/')
         }
     }
