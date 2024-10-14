@@ -7,7 +7,6 @@ import { signOut, useSession } from 'next-auth/react'
 const UserMenu = () => {
     const { modalIs, setModalIs } = WebNavigation()
     const { status, data } = useSession()
-    console.log(data)
 
     return (
         <div className='__auth col-start-3 flex items-center justify-end'>

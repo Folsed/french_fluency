@@ -4,6 +4,7 @@ import { Roboto } from 'next/font/google'
 import Providers from '@/providers/Providers'
 import Header from './components/header/Header'
 import BackToTop from './components/BackToTop'
+import { Toaster } from 'sonner'
 
 interface LayoutProps {
     children: React.ReactNode
@@ -24,11 +25,12 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
     return (
         <html lang='en' className={roboto.variable}>
             <body className='h-full bg-background'>
+                <Toaster />
                 <Providers>
-                    <Header/>
+                    <Header />
                     {children}
                 </Providers>
-                <BackToTop/>
+                <BackToTop />
             </body>
         </html>
     )

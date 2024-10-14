@@ -5,12 +5,15 @@ import bcrypt from 'bcryptjs'
 
 export const register = async (values: any) => {
     const { email, password, name } = values
+
     try {
+        console.log(values)
+        if (!email && !password && !name) throw new Error('Введите данные')
         await connectDB()
         const userFound = await User.findOne({ email })
         if (userFound) {
             return {
-                error: 'Email already exists!',
+                error: 'Такая почта уже существует!',
             }
         }
         const hashedPassword = await bcrypt.hash(password, 10)
@@ -20,7 +23,7 @@ export const register = async (values: any) => {
             password: hashedPassword,
         })
         const savedUser = await user.save()
-    } catch (e) {
-        console.log(e)
+    } catch (error) {
+        console.log(error)
     }
 }
