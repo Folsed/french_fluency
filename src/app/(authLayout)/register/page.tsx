@@ -32,6 +32,15 @@ const RegisterPage = () => {
                         <div className='mb-4 text-lg'>
                             <input
                                 className='w-full border-b-2 border-gray-400 bg-transparent px-6 py-2 text-center text-inherit placeholder-gray-500'
+                                type='text'
+                                name='name'
+                                placeholder='Имя пользователя'
+                            />
+                        </div>
+
+                        <div className='mb-4 text-lg'>
+                            <input
+                                className='w-full border-b-2 border-gray-400 bg-transparent px-6 py-2 text-center text-inherit placeholder-gray-500'
                                 type='Password'
                                 name='name'
                                 placeholder='Пароль'

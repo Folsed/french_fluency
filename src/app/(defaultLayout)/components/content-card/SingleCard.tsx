@@ -1,12 +1,12 @@
 'use client'
-import { ICourse } from '@/models/Course'
+import { CourseDocument } from '@/models/Course'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import AnimateModal from './AnimateModal'
 import CardDetails from './CardDetails'
 
 interface IData {
-    data: ICourse
+    data: CourseDocument
 }
 
 const SingleCard: React.FC<IData> = ({ data }) => {

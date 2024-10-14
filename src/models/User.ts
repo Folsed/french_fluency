@@ -1,16 +1,39 @@
-// models/Post.ts
 import mongoose, { Document, Model, Schema } from 'mongoose'
 
-interface IPost extends Document {
-    name: string
+interface UserDocument extends Document {
+    _id: string
     email: string
+    name: string
+    password: string
+    createdAt: Date
+    updatedAt: Date
 }
 
-const PostSchema: Schema = new Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true },
-})
+const UserSchema: Schema = new Schema(
+    {
+        email: {
+            type: String,
+            required: [true, 'Name is required'],
+            unique: true,
+            match: [
+                /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                'Email is invalid',
+            ],
+        },
+        name: {
+            type: String,
+            required: [true, 'Name is required'],
+        },
+        password: {
+            type: String,
+            required: true,
+        },
+    },
+    {
+        timestamps: true,
+    }
+)
 
-const User: Model<IPost> =
-    mongoose.models.User || mongoose.model<IPost>('User', PostSchema)
+const User: Model<UserDocument> =
+    mongoose.models.User || mongoose.model<UserDocument>('User', UserSchema)
 export default User

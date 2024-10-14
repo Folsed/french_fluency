@@ -1,9 +1,9 @@
-import clientPromise from '@/config/database/mongodb'
+import connectDB from '@/config/database/mongodb'
 import Course from '@/models/Course'
 import SingleCard from './SingleCard'
 
 const ContentCards = async () => {
-    await clientPromise
+    await connectDB()
 
     const data = await Course.find({}).lean()
 
