@@ -1,7 +1,31 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { FormEvent, useRef, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { register } from '@/actions/register'
+
 const RegisterPage = () => {
+    const [error, setError] = useState<string>()
+    const router = useRouter()
+    const formRef = useRef<HTMLFormElement>(null)
+
+    const handleSubmit = async (formData: FormData) => {
+        const reg = await register({
+            email: formData.get('email'),
+            password: formData.get('password'),
+            name: formData.get('name'),
+        })
+        formRef.current?.reset()
+        if (reg?.error) {
+            setError(reg.error)
+            return
+        } else {
+            return router.push('/login')
+        }
+    }
+
     return (
         <div className='flex h-screen w-full items-center justify-center bg-black bg-cover bg-no-repeat'>
             <div className='absolute inset-0'>
@@ -19,12 +43,12 @@ const RegisterPage = () => {
                     <div className='mb-8 flex flex-col items-center'>
                         <h1 className='mb-2 text-2xl'>Регистрация</h1>
                     </div>
-                    <form action='#'>
+                    <form ref={formRef} action={handleSubmit}>
                         <div className='mb-4 text-lg'>
                             <input
                                 className='w-full border-b-2 border-gray-400 bg-transparent px-6 py-2 text-center text-inherit placeholder-gray-500'
-                                type='text'
-                                name='name'
+                                type='email'
+                                name='email'
                                 placeholder='Gmail'
                             />
                         </div>
@@ -32,9 +56,9 @@ const RegisterPage = () => {
                         <div className='mb-4 text-lg'>
                             <input
                                 className='w-full border-b-2 border-gray-400 bg-transparent px-6 py-2 text-center text-inherit placeholder-gray-500'
-                                type='Password'
+                                type='text'
                                 name='name'
-                                placeholder='Пароль'
+                                placeholder='Имя пользователя'
                             />
                         </div>
 
@@ -42,8 +66,8 @@ const RegisterPage = () => {
                             <input
                                 className='w-full border-b-2 border-gray-400 bg-transparent px-6 py-2 text-center text-inherit placeholder-gray-500'
                                 type='Password'
-                                name='name'
-                                placeholder='Повторите пароль'
+                                name='password'
+                                placeholder='Пароль'
                             />
                         </div>
 

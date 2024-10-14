@@ -1,6 +1,7 @@
 import mongoose, { Document, Model, Schema } from 'mongoose'
 
-export interface ICourse extends Document {
+export interface CourseDocument extends Document {
+    _id: string
     title: string
     synopsis: string
     language: string
@@ -9,7 +10,7 @@ export interface ICourse extends Document {
     url: string
 }
 
-const PostSchema: Schema = new Schema({
+const PostSchema = new Schema<CourseDocument>({
     title: { type: String, required: true },
     synopsis: { type: String, required: true },
     language: { type: String, required: true },
@@ -18,6 +19,7 @@ const PostSchema: Schema = new Schema({
     url: { type: String, required: true },
 })
 
-const Course: Model<ICourse> =
-    mongoose.models.Course || mongoose.model<ICourse>('Course', PostSchema)
+const Course: Model<CourseDocument> =
+    mongoose.models.Course ||
+    mongoose.model<CourseDocument>('Course', PostSchema)
 export default Course

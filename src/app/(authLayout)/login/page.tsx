@@ -1,8 +1,31 @@
+'use client'
 import { FaGoogle } from 'react-icons/fa'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { FormEvent, useState } from 'react'
+import { signIn } from 'next-auth/react'
 
 const LoginPage = () => {
+    const [error, setError] = useState('')
+    const router = useRouter()
+
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault()
+        const formData = new FormData(event.currentTarget)
+        const res = await signIn('credentials', {
+            email: formData.get('email'),
+            password: formData.get('password'),
+            redirect: false,
+        })
+        if (res?.error) {
+            setError(res.error as string)
+        }
+        if (res?.ok) {
+            return router.push('/')
+        }
+    }
+
     return (
         <div className='flex h-screen w-full items-center justify-center bg-black bg-cover bg-no-repeat'>
             <div className='absolute inset-0'>
@@ -20,28 +43,28 @@ const LoginPage = () => {
                     <div className='mb-8 flex flex-col items-center'>
                         <h1 className='mb-2 text-2xl'>Вход в аккаунт</h1>
                     </div>
-                    <form action='#'>
+                    <form onSubmit={handleSubmit}>
                         <div className='mb-4 text-lg'>
                             <input
                                 className='w-full border-b-2 border-gray-400 bg-transparent px-6 py-2 text-center text-inherit placeholder-gray-500'
-                                type='text'
-                                name='name'
-                                placeholder='Логин'
+                                type='email'
+                                name='email'
+                                placeholder='Gmail'
                             />
                         </div>
 
                         <div className='mb-4 text-lg'>
                             <input
                                 className='w-full border-b-2 border-gray-400 bg-transparent px-6 py-2 text-center text-inherit placeholder-gray-500'
-                                type='Password'
-                                name='name'
+                                type='password'
+                                name='password'
                                 placeholder='Пароль'
                             />
                         </div>
                         <div className='mb-6 flex items-center justify-between gap-4'>
                             <div className='me-4 flex items-center'>
                                 <input
-                                    checked
+                                    // checked
                                     type='checkbox'
                                     value=''
                                     className='h-4 w-4 border-gray-300 bg-gray-100 text-yellow-400 focus:ring-2 focus:ring-yellow-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-yellow-600'

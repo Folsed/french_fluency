@@ -1,8 +1,8 @@
 'use client'
-import { ICourse } from '@/models/Course'
+import { CourseDocument } from '@/models/Course'
 import { MdOutlineEuro } from 'react-icons/md'
 
-const CardDetails = ({ data }: { data: ICourse }) => {
+const CardDetails = ({ data }: { data: CourseDocument }) => {
     const paragraphs = data.synopsis.split(/\n\n|\n-/)
 
     return (

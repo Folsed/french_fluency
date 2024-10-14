@@ -73,14 +73,14 @@ const AnimateModal: React.FC<IAnimateModal> = ({ open, setOpen, children }) => {
                             bottom: 0.7,
                         }}
                     >
-                        <button className='absolute left-0 right-0 top-0 z-10 flex justify-center bg-purple-50 p-4'>
+                        <div className='absolute left-0 right-0 top-0 z-10 flex justify-center bg-purple-50 p-4'>
                             <button
                                 className='h-2 w-32 cursor-grab touch-none rounded-full bg-neutral-700 active:cursor-grabbing'
                                 onPointerDown={(e) => {
                                     controls.start(e)
                                 }}
                             ></button>
-                        </button>
+                        </div>
                         <div className='relative z-0 h-full overflow-y-scroll no-scrollbar pt-12'>
                             {children}
                         </div>
