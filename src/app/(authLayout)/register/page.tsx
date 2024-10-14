@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { FormEvent, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { register } from '@/actions/register'
+import { toast } from 'sonner'
 
 const RegisterPage = () => {
     const [error, setError] = useState<string>()
@@ -20,7 +21,10 @@ const RegisterPage = () => {
         formRef.current?.reset()
         if (reg?.error) {
             setError(reg.error)
-            console.log(reg?.error)
+            toast(reg.error)
+        } else {
+            toast('Вы успешно зарегистрировались. Войдите в аккаунт!')
+            router.push('/login')
         }
     }
 

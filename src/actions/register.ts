@@ -7,8 +7,11 @@ export const register = async (values: any) => {
     const { email, password, name } = values
 
     try {
-        console.log(values)
-        if (!email && !password && !name) throw new Error('Введите данные')
+        if (!email && !password && !name) {
+            return {
+                error: 'Пожалуйста введите данные!',
+            }
+        }
         await connectDB()
         const userFound = await User.findOne({ email })
         if (userFound) {
@@ -22,7 +25,7 @@ export const register = async (values: any) => {
             email,
             password: hashedPassword,
         })
-        const savedUser = await user.save()
+        await user.save()
     } catch (error) {
         console.log(error)
     }
