@@ -8,7 +8,7 @@ interface AuthLayoutProps {
 const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
     return (
         <div className='n'>
-            <div className='flex h-full w-full items-center justify-center bg-black'>
+            <div className='flex h-screen w-full items-center justify-center bg-black overflow-hidden'>
                 <div className='absolute inset-0'>
                     <Image
                         src={'/auth-pick.webp'}
