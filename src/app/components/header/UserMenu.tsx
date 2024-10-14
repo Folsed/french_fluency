@@ -10,12 +10,12 @@ const UserMenu = () => {
 
     return (
         <div className='__auth col-start-3 flex items-center justify-end'>
-            {data?.user ? (
+            {data ? (
                 <button
-                    className='stroke-font p-2 text-white duration-200 hover:stroke-font-hover'
+                    className='stroke-font p-2 text-white duration-200 hover:stroke-font-hover max-lg:hidden'
                     onClick={() => signOut()}
                 >
-                    {data.user.name}
+                    {data?.user?.name}
                 </button>
             ) : (
                 <Link
