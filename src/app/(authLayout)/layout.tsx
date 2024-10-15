@@ -12,7 +12,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
                 <div className='absolute inset-0'>
                     <Image
                         src={'/auth-pick.webp'}
-                        className='opacity-50 object-cover'
+                        className='opacity-50 object-cover w-full h-full'
                         alt=''
                         fill
                         priority
