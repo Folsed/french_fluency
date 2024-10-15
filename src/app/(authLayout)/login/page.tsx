@@ -31,9 +31,10 @@ const LoginPage = () => {
         }
     }
 
-    useEffect(() => {
-        console.log(status)
-    }, [status])
+    const handleGoogleSubmit = () => {
+        signIn('google')
+
+    }
 
     return (
         <div className='bg-gray-800 bg-opacity-50 px-20 py-16 shadow-lg backdrop-blur-md max-md:py-10 max-sm:px-8'>
@@ -87,8 +88,8 @@ const LoginPage = () => {
                         >
                             {status === 'loading' ? (
                                 <Spinner
-                                    className='relative w-full bg-white py-2 dark:bg-gray-900'
-                                    size={20}
+                                    className='relative w-full bg-white py-1 dark:bg-gray-900'
+                                    // size={20}
                                 />
                             ) : (
                                 <span className='relative w-full bg-white px-2 py-2 transition-all duration-75 ease-in group-hover:bg-opacity-0 dark:bg-gray-900'>
@@ -116,6 +117,7 @@ const LoginPage = () => {
                     <button
                         type='button'
                         className='mb-2 inline-flex w-full items-center justify-center gap-1 bg-[#4285F4] px-5 py-2.5 text-center text-white transition-colors duration-75 hover:bg-[#4285F4]/90 focus:outline-none focus:ring-4 focus:ring-[#4285F4]/50 dark:focus:ring-[#4285F4]/55'
+                        onClick={handleGoogleSubmit}
                     >
                         <FaGoogle />
                         Sign in with Google

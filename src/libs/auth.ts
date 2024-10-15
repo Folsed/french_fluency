@@ -2,11 +2,14 @@ import connectDB from '@/config/database/mongodb'
 import User from '@/models/User'
 import type { NextAuthOptions } from 'next-auth'
 import bcrypt from 'bcryptjs'
-import Credentials from 'next-auth/providers/credentials'
+
+// Providers
+import CredentialsProvider from 'next-auth/providers/credentials'
+import GoogleProvider from 'next-auth/providers/google'
 
 export const authOptions: NextAuthOptions = {
     providers: [
-        Credentials({
+        CredentialsProvider({
             id: 'credentials',
             name: 'Credentials',
             credentials: {
@@ -31,8 +34,17 @@ export const authOptions: NextAuthOptions = {
                 return user
             },
         }),
+        GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID as string,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+        }),
     ],
-    secret: process.env.AUTH_SECRET,
+    secret: process.env.AUTH_SECRET as string,
+    callbacks: {
+        async redirect() {
+            return process.env.NEXTAUTH_URL as string
+        },
+    },
     session: {
         strategy: 'jwt',
     },

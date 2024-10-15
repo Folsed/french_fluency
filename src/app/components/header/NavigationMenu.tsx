@@ -14,6 +14,7 @@ const NavigationMenu = () => {
     const handleLogOut = () => {
         signOut()
     }
+    
 
     return (
         <div className='__navigation_menu lg:hidden'>
@@ -32,15 +33,14 @@ const NavigationMenu = () => {
                 <div className='mt-56 flex flex-col items-center justify-center text-font'>
                     {status === 'authenticated' && (
                         <div className='flex flex-col items-center justify-center'>
-                            <>
-                                <h1 className='text-xl'>{data?.user?.email}</h1>
-                                <Link
-                                    className={`relative p-2 duration-200 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-white after:transition-[width_.2s_ease] hover:text-font-hover hover:after:w-full ${pathname === '/profile' ? 'text-font-hover after:w-full' : 'after:w-0'} mt-12`}
-                                    href={'/profile'}
-                                >
-                                    Ваш профиль
-                                </Link>
-                            </>
+                            <h1 className='text-xl'>{data?.user?.name}</h1>
+                            <h1 className='text-sm'>{data?.user?.email}</h1>
+                            <Link
+                                className={`relative p-2 duration-200 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-white after:transition-[width_.2s_ease] hover:text-font-hover hover:after:w-full ${pathname === '/profile' ? 'text-font-hover after:w-full' : 'after:w-0'} mt-12`}
+                                href={'/profile'}
+                            >
+                                Ваш профиль
+                            </Link>
                         </div>
                     )}
                     {headerTabs.map((item, _) => (
