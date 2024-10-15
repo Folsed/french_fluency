@@ -3,13 +3,15 @@ import { FaGoogle } from 'react-icons/fa'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { FormEvent, useState } from 'react'
-import { signIn } from 'next-auth/react'
+import { FormEvent, useEffect, useState } from 'react'
+import { signIn, useSession } from 'next-auth/react'
 import { toast } from 'sonner'
+import { Spinner } from '@/components/UI/Spinner'
 
 const LoginPage = () => {
     const [error, setError] = useState('')
     const router = useRouter()
+    const { status } = useSession()
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -28,6 +30,10 @@ const LoginPage = () => {
             return router.push('/')
         }
     }
+
+    useEffect(() => {
+        console.log(status)
+    }, [status])
 
     return (
         <div className='bg-gray-800 bg-opacity-50 px-20 py-16 shadow-lg backdrop-blur-md max-md:py-10 max-sm:px-8'>
@@ -75,10 +81,20 @@ const LoginPage = () => {
                     </div>
 
                     <div className='mt-8 flex justify-center text-lg text-black'>
-                        <button className='group relative inline-flex w-full items-center justify-center overflow-hidden bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 p-0.5 text-base font-medium text-gray-900 focus:outline-none focus:ring-4 focus:ring-red-100 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 dark:focus:ring-red-400'>
-                            <span className='relative w-full bg-white px-2 py-2 transition-all duration-75 ease-in group-hover:bg-opacity-0 dark:bg-gray-900'>
-                                Войти
-                            </span>
+                        <button
+                            className='group relative inline-flex w-full items-center justify-center overflow-hidden bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 p-0.5 text-base font-medium text-gray-900 focus:outline-none focus:ring-4 focus:ring-red-100 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 dark:focus:ring-red-400'
+                            disabled={status === 'loading' ? true : false}
+                        >
+                            {status === 'loading' ? (
+                                <Spinner
+                                    className='relative w-full bg-white py-2 dark:bg-gray-900'
+                                    size={20}
+                                />
+                            ) : (
+                                <span className='relative w-full bg-white px-2 py-2 transition-all duration-75 ease-in group-hover:bg-opacity-0 dark:bg-gray-900'>
+                                    Войти
+                                </span>
+                            )}
                         </button>
                     </div>
 
