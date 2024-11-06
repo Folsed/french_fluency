@@ -1,7 +1,18 @@
 'use client'
 
 import PaymentModal from '@/components/modals/PaymentModal'
+import convertToSubcurrency from '@/libs/convertToSubcurrency'
 import { WebNavigation } from '@/providers/NavigationProvider'
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
+
+if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY === undefined) {
+    throw new Error(
+        'process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY is not defined'
+    )
+}
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 const UsableButtons = ({ amount }: { amount: number }) => {
     const { modalIs, setModalIs } = WebNavigation()
@@ -25,7 +36,16 @@ const UsableButtons = ({ amount }: { amount: number }) => {
                 </span>
             </button>
             {modalIs === 'payment-modal' ? (
-                <PaymentModal amount={amount} />
+                <Elements
+                    stripe={stripePromise}
+                    options={{
+                        mode: 'payment',
+                        amount: convertToSubcurrency(amount),
+                        currency: 'eur',
+                    }}
+                >
+                    <PaymentModal amount={amount} />
+                </Elements>
             ) : null}
         </div>
     )
