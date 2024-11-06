@@ -33,7 +33,6 @@ const LoginPage = () => {
 
     const handleGoogleSubmit = () => {
         signIn('google')
-
     }
 
     return (

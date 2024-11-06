@@ -2,7 +2,6 @@
 import Image from 'next/image'
 
 const WelcomeCanvas = () => {
-
     const handleClick = () => {
         const element = document.getElementById('courses-grid')
         if (element) {
@@ -12,12 +11,12 @@ const WelcomeCanvas = () => {
 
     return (
         <div className='relative aspect-[2/3] h-screen w-full md:aspect-[16/9]'>
-            <div className='absolute -z-10 h-full w-full [clip-path:inset(0_0_0_0)] bg-gray-900'>
+            <div className='absolute -z-10 h-full w-full bg-gray-900 [clip-path:inset(0_0_0_0)]'>
                 <div className='fixed left-0 top-0 h-full w-full'>
                     <Image
                         src={'/main.webp'}
                         fill
-                        sizes="100vw"
+                        sizes='100vw'
                         className='object-cover'
                         priority
                         alt=''
