@@ -1,9 +1,20 @@
 'use client'
 import { CourseDocument } from '@/models/Course'
+import { WebNavigation } from '@/providers/NavigationProvider'
 import { MdOutlineEuro } from 'react-icons/md'
+import PaymentModal from '../payment-modal/PaymentModal'
 
 const CardDetails = ({ data }: { data: CourseDocument }) => {
     const paragraphs = data.synopsis.split(/\n\n|\n-/)
+    const { modalIs, setModalIs } = WebNavigation()
+
+    const paymentModalHandler = () => {
+        if (modalIs === 'payment-modal') {
+            setModalIs('')
+        } else {
+            setModalIs('payment-modal')
+        }
+    }
 
     return (
         <div className='mb-24 flex flex-col gap-8 px-4'>
@@ -47,7 +58,10 @@ const CardDetails = ({ data }: { data: CourseDocument }) => {
                     </span>
                 </div>
                 <div className='flex flex-col gap-2 md:flex-row md:gap-2'>
-                    <button className='group relative mb-2 me-2 inline-flex items-center justify-center overflow-hidden bg-gradient-to-br from-teal-300 to-lime-300 p-0.5 text-base font-medium text-gray-900 focus:outline-none focus:ring-4 focus:ring-lime-200 group-hover:from-teal-300 group-hover:to-lime-300 md:text-lg dark:text-white dark:hover:text-gray-900 dark:focus:ring-lime-800'>
+                    <button
+                        onClick={paymentModalHandler}
+                        className='group relative mb-2 me-2 inline-flex items-center justify-center overflow-hidden bg-gradient-to-br from-teal-300 to-lime-300 p-0.5 text-base font-medium text-gray-900 focus:outline-none focus:ring-4 focus:ring-lime-200 group-hover:from-teal-300 group-hover:to-lime-300 md:text-lg dark:text-white dark:hover:text-gray-900 dark:focus:ring-lime-800'
+                    >
                         <span className='relative w-full bg-gray-900 px-5 py-2.5 transition-all duration-75 ease-in group-hover:bg-opacity-0 md:px-7 md:py-5'>
                             Купить курс
                         </span>
@@ -57,6 +71,7 @@ const CardDetails = ({ data }: { data: CourseDocument }) => {
                             Добавить в желаемое
                         </span>
                     </button>
+                    {modalIs === 'payment-modal' ? <PaymentModal /> : null}
                 </div>
             </div>
         </div>
