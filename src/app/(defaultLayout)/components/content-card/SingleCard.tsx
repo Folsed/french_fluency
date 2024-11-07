@@ -15,7 +15,10 @@ const SingleCard: React.FC<IData> = ({ data }) => {
         <div
             className={`aspect-square h-full transition-colors duration-500 lg:aspect-[16/10]`}
         >
-            <Link href={`/course/${data.alias}`} className='relative flex h-full w-full items-center justify-center bg-[#000000c5] px-12 transition duration-300 hover:bg-[#0000009b]'>
+            <Link
+                href={`/course/${data.alias}`}
+                className='relative flex h-full w-full items-center justify-center bg-[#000000c5] px-12 transition duration-300 hover:bg-[#0000009b]'
+            >
                 <Image
                     className='z-[-1] bg-gray-900 object-cover'
                     src={data.image}

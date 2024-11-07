@@ -1,6 +1,6 @@
-import connectDB from "@/config/database/mongodb"
-import Course, { CourseDocument } from "@/models/Course"
-import CourseDetails from "./components/course-details/CourseDetails"
+import connectDB from '@/config/database/mongodb'
+import Course, { CourseDocument } from '@/models/Course'
+import CourseDetails from './components/course-details/CourseDetails'
 
 const CoursePage = async ({
     params,
@@ -9,12 +9,13 @@ const CoursePage = async ({
 }) => {
     await connectDB()
     const alias = (await params).alias
-    const data = await Course.findOne({alias: alias})
+    const data = await Course.findOne({ alias: alias })
 
-
-    return <div className='mt-36'>
-        <CourseDetails data={data as CourseDocument}/>
-    </div>
+    return (
+        <div className='mt-36'>
+            <CourseDetails data={data as CourseDocument} />
+        </div>
+    )
 }
 
 export default CoursePage

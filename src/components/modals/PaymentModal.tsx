@@ -48,15 +48,15 @@ const PaymentModal = ({ amount }: { amount: number }) => {
             return
         }
 
-        const {error} = await stripe.confirmPayment({
+        const { error } = await stripe.confirmPayment({
             elements,
             clientSecret,
             confirmParams: {
-                return_url: 'http://www.localhost:3000/'
-            }
+                return_url: 'http://www.localhost:3000/',
+            },
         })
 
-        if(error) {
+        if (error) {
             setErrorMessage(error.message as string)
         }
 
@@ -69,8 +69,13 @@ const PaymentModal = ({ amount }: { amount: number }) => {
             // onClick={() => setModalIs('')}
         >
             <div className='fixed top-12 flex h-full w-full items-center justify-center overflow-y-auto bg-[#000000e1] lg:top-[60px]'>
-                <div className='mx-6 flex w-full max-w-xl flex-col relative gap-12 rounded-md bg-purple-100 p-8'>
-                    <span className='abosolute right-0 top-0' onClick={() => setModalIs('')}>X</span>
+                <div className='relative mx-6 flex w-full max-w-xl flex-col gap-12 rounded-md bg-purple-100 p-8'>
+                    <span
+                        className='abosolute right-0 top-0'
+                        onClick={() => setModalIs('')}
+                    >
+                        X
+                    </span>
                     <h2 className='text-center text-3xl font-extrabold text-gray-800'>
                         Оплата курса
                     </h2>
