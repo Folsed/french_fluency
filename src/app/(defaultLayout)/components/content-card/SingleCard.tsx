@@ -4,27 +4,18 @@ import Image from 'next/image'
 import React, { useState } from 'react'
 import AnimateModal from './AnimateModal'
 import CardDetails from './CardDetails'
+import Link from 'next/link'
 
 interface IData {
     data: CourseDocument
 }
 
 const SingleCard: React.FC<IData> = ({ data }) => {
-    const [open, setOpen] = useState(false)
-
-    const handleOpen = () => {
-        setOpen(true)
-        document.body.classList.add('scroll-blocked')
-    }
-
     return (
         <div
             className={`aspect-square h-full transition-colors duration-500 lg:aspect-[16/10]`}
         >
-            <button
-                onClick={handleOpen}
-                className='relative flex h-full w-full items-center justify-center bg-[#000000c5] px-12 transition duration-300 hover:bg-[#0000009b]'
-            >
+            <Link href={`/course/${data.alias}`} className='relative flex h-full w-full items-center justify-center bg-[#000000c5] px-12 transition duration-300 hover:bg-[#0000009b]'>
                 <Image
                     className='z-[-1] bg-gray-900 object-cover'
                     src={data.image}
@@ -41,10 +32,7 @@ const SingleCard: React.FC<IData> = ({ data }) => {
                         {data.synopsis}
                     </p>
                 </div>
-            </button>
-            <AnimateModal open={open} setOpen={setOpen}>
-                <CardDetails data={data} />
-            </AnimateModal>
+            </Link>
         </div>
     )
 }

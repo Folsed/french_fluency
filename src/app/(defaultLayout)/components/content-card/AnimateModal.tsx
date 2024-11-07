@@ -81,7 +81,7 @@ const AnimateModal: React.FC<IAnimateModal> = ({ open, setOpen, children }) => {
                                 }}
                             ></button>
                         </div>
-                        <div className='relative z-0 h-full overflow-y-scroll no-scrollbar pt-12'>
+                        <div className='no-scrollbar relative z-0 h-full overflow-y-scroll pt-12'>
                             {children}
                         </div>
                     </motion.div>

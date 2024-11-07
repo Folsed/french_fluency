@@ -14,7 +14,6 @@ const NavigationMenu = () => {
     const handleLogOut = () => {
         signOut()
     }
-    
 
     return (
         <div className='__navigation_menu lg:hidden'>

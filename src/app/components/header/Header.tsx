@@ -8,7 +8,7 @@ import Link from 'next/link'
 const Header = () => {
     return (
         <section className='header'>
-            <div className='lg:gap-22 fixed z-10 grid w-full grid-flow-col grid-cols-[1fr_auto_1fr] bg-[#000000da] lg:px-12 lg:py-2 backdrop-blur-lg'>
+            <div className='lg:gap-22 fixed z-10 grid w-full grid-flow-col grid-cols-[1fr_auto_1fr] bg-[#000000da] backdrop-blur-lg lg:px-12 lg:py-2'>
                 <Link
                     className='col-start-2 flex items-center lg:col-start-1'
                     href='/'
