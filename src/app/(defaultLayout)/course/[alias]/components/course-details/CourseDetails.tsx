@@ -12,7 +12,7 @@ const CourseDetails = ({ data }: { data: CourseDocument }) => {
     return (
         <section className='w-full overflow-hidden'>
             <div className='mx-auto w-full'>
-                <div className='mb-24 flex flex-col gap-8'>
+                <div className='mb-24 flex flex-col gap-8 lg:gap-16'>
                     <div className='relative flex h-[12.5rem] w-full items-center justify-center bg-gray-900 sm:h-[16rem] md:h-[19rem] lg:h-[22rem] xl:h-[25rem]'>
                         <Image
                             src={data.image}
@@ -32,8 +32,8 @@ const CourseDetails = ({ data }: { data: CourseDocument }) => {
                             </div>
                         </div>
                     </div>
-                    <section className='relative flex flex-col items-center justify-center gap-12 overflow-hidden px-4'>
-                        <div className='mx-auto h-60 w-full max-w-xl sm:h-72 lg:h-80'>
+                    <section className='relative flex flex-col items-center justify-center gap-8 overflow-hidden lg:gap-16'>
+                        <div className='mx-auto h-60 w-full max-w-xl px-3 sm:h-72 lg:h-80 lg:px-0'>
                             <div className='h-full w-full overflow-hidden rounded-xl shadow-2xl'>
                                 <Suspense fallback={<p>Loading...</p>}>
                                     <iframe
@@ -50,7 +50,7 @@ const CourseDetails = ({ data }: { data: CourseDocument }) => {
                                         {paragraphs?.map((item, index) => (
                                             <div
                                                 key={index}
-                                                className='relative flex items-center justify-center md:justify-normal md:odd:flex-row-reverse'
+                                                className='relative flex items-center justify-center text-lg md:justify-normal md:odd:flex-row-reverse'
                                             >
                                                 <div className='w-[calc(100%-1rem)] rounded border border-slate-200 bg-white p-4 shadow md:w-[calc(50%-2.5rem)]'>
                                                     <div className=''>
