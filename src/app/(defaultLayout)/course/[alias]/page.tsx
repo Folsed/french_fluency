@@ -12,7 +12,7 @@ const CoursePage = async ({
     const data = await Course.findOne({ alias: alias })
 
     return (
-        <div className='mt-36'>
+        <div className=''>
             <CourseDetails data={data as CourseDocument} />
         </div>
     )

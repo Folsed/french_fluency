@@ -12,8 +12,7 @@ const AboutMe = () => {
                         alt='User Cover'
                         className='w-full object-cover'
                         fill
-                        // priority
-                        loading='lazy'
+                        priority
                     />
                 </div>
                 {/* User Profile Image */}
