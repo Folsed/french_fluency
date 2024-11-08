@@ -28,10 +28,10 @@ const SingleCard: React.FC<IData> = ({ data }) => {
                     alt='Nature scene'
                 />
                 <div className='z-[1] grid gap-6 text-center lg:w-2/3'>
-                    <h2 className='truncate text-2xl font-bold text-font-hover'>
+                    <h2 className='truncate text-2xl font-bold text-font-hover lg:text-4xl'>
                         {data.title}
                     </h2>
-                    <p className='line-clamp-3 text-font-hover'>
+                    <p className='text-md line-clamp-3 text-font md:text-lg lg:text-xl'>
                         {data.synopsis}
                     </p>
                 </div>
