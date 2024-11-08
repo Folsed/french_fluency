@@ -13,7 +13,7 @@ const CourseDetails = ({ data }: { data: CourseDocument }) => {
         <section className='w-full overflow-hidden'>
             <div className='mx-auto w-full'>
                 <div className='mb-24 flex flex-col gap-8 lg:gap-16'>
-                    <div className='relative flex h-[12.5rem] w-full items-center justify-center bg-gray-900 sm:h-[16rem] md:h-[19rem] lg:h-[22rem] xl:h-[25rem]'>
+                    <div className='relative flex h-[15rem] w-full items-center justify-center bg-gray-900 sm:h-[19rem] md:h-[22rem] lg:h-[25rem] xl:h-[27rem]'>
                         <Image
                             src={data.image}
                             alt='User Cover'
@@ -23,8 +23,8 @@ const CourseDetails = ({ data }: { data: CourseDocument }) => {
                         />
                         <div className='absolute inset-0 z-[1] bg-[#000000aa]'></div>
 
-                        <div className='z-[2] flex max-w-2xl flex-col items-center space-y-4 px-2 md:mx-auto'>
-                            <h2 className='text-start text-4xl font-bold text-font-hover md:px-0'>
+                        <div className='z-[2] flex max-w-2xl flex-col gap-0 lg:gap-4 items-center px-2 md:mx-auto'>
+                            <h2 className='text-center text-2xl lg:text-4xl font-bold text-font-hover md:px-0'>
                                 {data.title}
                             </h2>
                             <div className='flex'>
@@ -32,9 +32,9 @@ const CourseDetails = ({ data }: { data: CourseDocument }) => {
                             </div>
                         </div>
                     </div>
-                    <section className='relative flex flex-col items-center justify-center gap-8 overflow-hidden lg:gap-16'>
-                        <div className='mx-auto h-60 w-full max-w-xl px-3 sm:h-72 lg:h-80 lg:px-0'>
-                            <div className='h-full w-full overflow-hidden rounded-xl shadow-2xl'>
+                    <section className='relative flex flex-col items-center justify-center gap-8 lg:gap-16'>
+                        <div className='mx-auto h-60 w-full max-w-xl px-3 sm:h-72 lg:h-80 lg:px-0 -mt-16 lg:-m-24 z-[3]'>
+                            <div className='h-full w-full overflow-hidden rounded-xl shadow-2xl '>
                                 <Suspense fallback={<p>Loading...</p>}>
                                     <iframe
                                         src={data.teaser}
@@ -43,7 +43,7 @@ const CourseDetails = ({ data }: { data: CourseDocument }) => {
                                 </Suspense>
                             </div>
                         </div>
-                        <div className='mx-auto w-full max-w-7xl md:px-4'>
+                        <div className='mx-auto w-full max-w-7xl md:px-4 lg:mt-24'>
                             <div className='flex flex-col justify-center'>
                                 <div className='mx-auto w-full max-w-5xl'>
                                     <div className='relative space-y-8 before:absolute before:inset-0 before:ml-12 before:h-full before:w-0.5 before:-translate-x-px before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent md:before:mx-auto md:before:translate-x-0'>
