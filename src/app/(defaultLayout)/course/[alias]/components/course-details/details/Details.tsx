@@ -8,26 +8,26 @@ import { MdOutlineEuro } from 'react-icons/md'
 const Details = ({ data }: { data: CourseDocument }) => {
     return (
         <div className='flex max-w-3xl flex-col gap-8 lg:gap-16'>
-            <div className='flex items-center gap-2 text-2xl'>
-                <span>
+            <div className='items-top flex gap-2 text-2xl'>
+                <span className='text-gray-400'>
                     <SiOpslevel size={36} />
                 </span>
                 <h3>{data.for_level}</h3>
             </div>
-            <div className='flex items-center gap-2 text-2xl'>
-                <span>
+            <div className='items-top flex gap-2 text-2xl'>
+                <span className='text-gray-400'>
                     <MdOutlineFeedback size={36} />
                 </span>
                 <h3>{data.feedback}</h3>
             </div>
-            <div className='flex items-center gap-2 text-2xl'>
-                <span>
+            <div className='items-top flex gap-2 text-2xl'>
+                <span className='text-gray-400'>
                     <MdOutlineContactSupport size={36} />
                 </span>
                 <h3>{data.video_support}</h3>
             </div>
-            <div className='flex items-center gap-2 text-2xl'>
-                <span>
+            <div className='items-top flex gap-2 text-2xl'>
+                <span className='text-gray-400'>
                     <TbLockAccess size={36} />
                 </span>
 
