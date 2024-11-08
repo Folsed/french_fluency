@@ -23,8 +23,8 @@ const CourseDetails = ({ data }: { data: CourseDocument }) => {
                         />
                         <div className='absolute inset-0 z-[1] bg-[#000000aa]'></div>
 
-                        <div className='z-[2] flex max-w-2xl flex-col gap-0 lg:gap-4 items-center px-2 md:mx-auto'>
-                            <h2 className='text-center text-2xl lg:text-4xl font-bold text-font-hover md:px-0'>
+                        <div className='z-[2] flex max-w-2xl flex-col items-center gap-0 px-2 md:mx-auto lg:gap-4'>
+                            <h2 className='text-center text-2xl font-bold text-font-hover md:px-0 lg:text-4xl'>
                                 {data.title}
                             </h2>
                             <div className='flex'>
@@ -33,8 +33,8 @@ const CourseDetails = ({ data }: { data: CourseDocument }) => {
                         </div>
                     </div>
                     <section className='relative flex flex-col items-center justify-center gap-8 lg:gap-16'>
-                        <div className='mx-auto h-60 w-full max-w-xl px-3 sm:h-72 lg:h-80 lg:px-0 -mt-16 lg:-m-24 z-[3]'>
-                            <div className='h-full w-full overflow-hidden rounded-xl shadow-2xl '>
+                        <div className='z-[3] mx-auto -mt-16 h-60 w-full max-w-xl px-3 sm:h-72 lg:-m-24 lg:h-80 lg:px-0'>
+                            <div className='h-full w-full overflow-hidden rounded-xl shadow-2xl'>
                                 <Suspense fallback={<p>Loading...</p>}>
                                     <iframe
                                         src={data.teaser}
