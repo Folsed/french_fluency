@@ -8,6 +8,12 @@ export interface CourseDocument extends Document {
     price: number
     image: string
     alias: string
+    video_support: string
+    teaser: string
+    for_level: string
+    feedback: string
+    additional_info: string
+    access_time: string
 }
 
 const PostSchema = new Schema<CourseDocument>({
@@ -17,6 +23,12 @@ const PostSchema = new Schema<CourseDocument>({
     price: { type: Number, required: true },
     image: { type: String, required: true },
     alias: { type: String, required: true },
+    video_support: { type: String, required: true },
+    teaser: { type: String, required: true },
+    for_level: { type: String, required: true },
+    feedback: { type: String, required: true },
+    additional_info: { type: String, required: true },
+    access_time: { type: String, required: true },
 })
 
 const Course: Model<CourseDocument> =
