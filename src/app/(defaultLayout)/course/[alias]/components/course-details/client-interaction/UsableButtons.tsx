@@ -37,7 +37,7 @@ const UsableButtons = ({ amount }: { amount: number }) => {
             </button>
             {/* {modalIs! === 'payment-modal' ? (
             ) : null} */}
-            <Elements
+            {/* <Elements
                 stripe={stripePromise}
                 options={{
                     mode: 'payment',
@@ -45,8 +45,8 @@ const UsableButtons = ({ amount }: { amount: number }) => {
                     currency: 'eur',
                 }}
             >
-                <PaymentModal amount={amount} />
-            </Elements>
+            </Elements> */}
+            <PaymentModal amount={amount} />
         </div>
     )
 }
