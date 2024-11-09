@@ -1,9 +1,7 @@
 'use client'
 import { CourseDocument } from '@/models/Course'
 import Image from 'next/image'
-import React, { useState } from 'react'
-import AnimateModal from './AnimateModal'
-import CardDetails from './CardDetails'
+import React from 'react'
 import Link from 'next/link'
 
 interface IData {

@@ -8,7 +8,7 @@ import {
     useElements,
     useStripe,
 } from '@stripe/react-stripe-js'
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import Visa from '../svgs/Visa'
 
 const PaymentModal = ({ amount }: { amount: number }) => {
@@ -65,17 +65,11 @@ const PaymentModal = ({ amount }: { amount: number }) => {
 
     return (
         <div
-            className={`${modalIs === 'payment-modal' ? 'fixed' : 'hidden'} bottom-0 left-0 right-0 top-12 z-10 lg:top-[60px]`}
+            className={`${modalIs === 'payment-modal' ? 'fixed' : 'fixed'} bottom-0 left-0 right-0 top-12 z-10 lg:top-[60px]`}
             // onClick={() => setModalIs('')}
         >
             <div className='fixed top-12 flex h-full w-full items-center justify-center overflow-y-auto bg-[#000000e1] lg:top-[60px]'>
                 <div className='relative mx-6 flex w-full max-w-xl flex-col gap-12 rounded-md bg-purple-100 p-8'>
-                    <span
-                        className='abosolute right-0 top-0'
-                        onClick={() => setModalIs('')}
-                    >
-                        X
-                    </span>
                     <h2 className='text-center text-3xl font-extrabold text-gray-800'>
                         Оплата курса
                     </h2>
@@ -84,7 +78,11 @@ const PaymentModal = ({ amount }: { amount: number }) => {
                         onSubmit={handleSubmit}
                         className='flex flex-col gap-6'
                     >
-                        {clientSecret && <PaymentElement />}
+                        {clientSecret && (
+                            <Suspense fallback={<span>Processing...</span>}>
+                                <PaymentElement />
+                            </Suspense>
+                        )}
                         {errorMessage && <div>{errorMessage}</div>}
 
                         <button

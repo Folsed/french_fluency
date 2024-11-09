@@ -22,6 +22,8 @@ const ContentCards = async () => {
             <div className='relative grid grid-flow-row auto-rows-[minmax(300px,auto)] grid-cols-1 md:grid-cols-2'>
                 {courses.map((item, key) => (
                     <SingleCard data={item} key={key} />
+                    
+
                 ))}
             </div>
         </div>
