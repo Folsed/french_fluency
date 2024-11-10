@@ -49,7 +49,7 @@ const BackToTop = () => {
         <button
             ref={buttonRef}
             type='button'
-            className='!fixed bottom-5 end-5 z-50 hidden rounded-full bg-[#FFD700] p-3 text-xs font-medium uppercase leading-tight text-black shadow-md transition duration-150 ease-in-out hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg'
+            className='shadow-custom !fixed bottom-5 end-5 z-50 hidden rounded-full bg-[#FFD700] p-3 text-xs font-medium uppercase leading-tight text-black transition duration-150 ease-in-out hover:bg-red-700 focus:bg-red-700 focus:outline-none focus:ring-0 active:bg-red-800'
         >
             <span className='[&>svg]:w-4'>
                 <svg

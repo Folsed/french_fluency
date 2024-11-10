@@ -37,7 +37,7 @@ const AboutMe = () => {
                                             key={item.id}
                                             className='relative flex items-center justify-center md:justify-normal md:odd:flex-row-reverse text-font-hover'
                                         >
-                                            <div className='w-[calc(100%-4rem)] rounded border border-slate-700 bg-[#1b1f23] p-4 shadow md:w-[calc(50%-2.5rem)]'>
+                                            <div className='w-[calc(100%-4rem)] rounded border border-slate-700 bg-[#1b1f23] p-4 md:w-[calc(50%-2.5rem)] shadow-custom'>
                                                 <div className=''>
                                                     {item.text}
                                                 </div>

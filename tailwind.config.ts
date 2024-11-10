@@ -32,6 +32,9 @@ const config: Config = {
                     hover: 'var(--font-hover)',
                 },
             },
+            boxShadow: {
+                custom: '0px 0px 24px 0px rgba(0, 0, 0, 0.7)',
+            },
         },
     },
     plugins: [require('@tailwindcss/line-clamp')],

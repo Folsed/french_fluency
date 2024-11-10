@@ -45,7 +45,7 @@ const UsableButtons = ({ amount }: { amount: number }) => {
                     currency: 'eur',
                 }}
             >
-                <PaymentModal amount={amount} />
+                {/* <PaymentModal amount={amount} /> */}
             </Elements>
         </div>
     )
