@@ -30,6 +30,7 @@ const config: Config = {
                 font: {
                     DEFAULT: 'var(--font)',
                     hover: 'var(--font-hover)',
+                    secondary: 'var(--font-secondary)',
                 },
             },
             boxShadow: {
