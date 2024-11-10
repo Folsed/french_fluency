@@ -5,6 +5,7 @@ import Providers from '@/providers/Providers'
 import Header from './components/header/Header'
 import BackToTop from './components/BackToTop'
 import { Toaster } from 'sonner'
+import { ReactLenis } from 'lenis/react'
 
 interface LayoutProps {
     children: React.ReactNode
@@ -25,12 +26,14 @@ const RootLayout: React.FC<LayoutProps> = ({ children }) => {
     return (
         <html lang='en' className={roboto.variable}>
             <body className='h-full bg-background'>
-                <Toaster />
-                <Providers>
-                    <Header />
-                    {children}
-                </Providers>
-                <BackToTop />
+                <ReactLenis root>
+                    <Toaster />
+                    <Providers>
+                        <Header />
+                        {children}
+                    </Providers>
+                    <BackToTop />
+                </ReactLenis>
             </body>
         </html>
     )
