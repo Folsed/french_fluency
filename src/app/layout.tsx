@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const RootLayout: React.FC<LayoutProps> = ({ children }) => {
     return (
         <html lang='en' className={roboto.variable}>
-            <body className='h-full bg-background'>
+            <body className='h-full bg-background text-font'>
                 <Toaster />
                 <Providers>
                     <Header />
