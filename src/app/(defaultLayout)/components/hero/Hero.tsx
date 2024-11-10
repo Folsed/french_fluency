@@ -1,8 +1,9 @@
 'use client'
+import './hero.styles.css'
 import Logo from '@/components/svgs/Logo'
 import Image from 'next/image'
 
-const WelcomeCanvas = () => {
+const Hero = () => {
     const handleClick = () => {
         const element = document.getElementById('courses-grid')
         if (element) {
@@ -29,22 +30,18 @@ const WelcomeCanvas = () => {
             <div className='relative z-[2] m-auto flex h-full max-w-6xl select-none items-center justify-center text-white'>
                 <div className='flex flex-col gap-8'>
                     <div className='flex flex-col items-center gap-6'>
-                        {/* <h1 className='text-2xl sm:text-3xl lg:text-4xl xl:text-5xl'>
-                            Екатерина Безрукова
-                        </h1> */}
-                        <Logo className=' fill-[#FFD700] stroke-[#FFD700]' />
+                        <Logo className='fill-[#FFD700] stroke-[#FFD700]' />
                         <p className='text-lg sm:text-xl lg:text-2xl xl:text-3xl'>
                             Преподаватель французского
                         </p>
                     </div>
                     <div className='flex items-center justify-center'>
-                        <button
-                            className='group relative rounded-lg px-6 py-3 font-bold text-white xl:px-8 xl:py-4'
-                            onClick={handleClick}
-                        >
-                            <span className='ease absolute inset-0 h-full w-full -translate-x-1 -translate-y-1 transform bg-purple-800 opacity-80 transition duration-300 group-hover:translate-x-0 group-hover:translate-y-0'></span>
-                            <span className='ease absolute inset-0 h-full w-full translate-x-1 translate-y-1 transform bg-pink-800 opacity-80 mix-blend-screen transition duration-300 group-hover:translate-x-0 group-hover:translate-y-0'></span>
-                            <span className='relative'>Мои курсы</span>
+                        <button className='hero_button' onClick={handleClick}>
+                            <div className='hero_button__line'></div>
+                            <div className='hero_button__line'></div>
+                            <span className='hero_button__text'>Мои курсы</span>
+                            <div className='hero_button__drow1'></div>
+                            <div className='hero_button__drow2'></div>
                         </button>
                     </div>
                 </div>
@@ -52,4 +49,4 @@ const WelcomeCanvas = () => {
         </div>
     )
 }
-export default WelcomeCanvas
+export default Hero
