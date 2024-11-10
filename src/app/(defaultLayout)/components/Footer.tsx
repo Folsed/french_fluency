@@ -3,23 +3,30 @@ import { IoLogoInstagram } from 'react-icons/io'
 
 const Footer = () => {
     return (
-        <section className='_footer mt-12 border-t border-gray-900 bg-black md:mt-24 shadow-custom'>
+        <section className='_footer shadow-custom mt-12 border-t border-gray-900 bg-black md:mt-24'>
             <div className='my-20 flex flex-col gap-4'>
-                <div className='mx-auto text-center text-sm text-gray-300'>
-                    <div className='flex justify-center space-x-2'>
-                        <Link
-                            href='https://www.instagram.com/kateryna_teacher'
-                            className='shadow-dark-3 hover:shadow-dark-1 focus:shadow-dark-1 active:shadow-1 rounded-full bg-[#FFD700] p-2 uppercase leading-normal text-black shadow-black/30 transition duration-150 ease-in-out focus:outline-none focus:ring-0 hover:md:scale-110'
-                            target='_blank'
-                        >
-                            <span className='mx-auto [&>svg]:h-6 [&>svg]:w-6'>
-                                <IoLogoInstagram />
-                            </span>
-                        </Link>
-                    </div>
+                <div className='flex items-center justify-center'>
+                    <Link
+                        href='https://www.instagram.com/kateryna_teacher'
+                        target='_blank'
+                        className='group h-[50px] overflow-hidden text-white shadow-[0_0px_40px_#ff7a00]'
+                    >
+                        {[0, 1].map((_, index) => (
+                            <div
+                                key={index}
+                                className='flex h-[50px] w-[50px] items-center justify-center transition-transform duration-300 [background:linear-gradient(72.44deg,#ff7a00_11.92%,#ff0169_51.56%,#d300c5_85.69%)] group-hover:-translate-y-[50px]'
+                            >
+                                <IoLogoInstagram size={40} />
+                            </div>
+                        ))}
+                    </Link>
                 </div>
                 <div className='mx-auto text-center text-sm text-gray-300'>
-                    2024 ©<span className='font-bold text-font-hover'> KaterynaTeacher</span>
+                    2024 ©
+                    <span className='font-bold text-font-hover'>
+                        {' '}
+                        KaterynaTeacher
+                    </span>
                 </div>
             </div>
         </section>
