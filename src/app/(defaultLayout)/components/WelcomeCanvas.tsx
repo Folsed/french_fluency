@@ -1,4 +1,5 @@
 'use client'
+import Logo from '@/components/svgs/Logo'
 import Image from 'next/image'
 
 const WelcomeCanvas = () => {
@@ -10,7 +11,7 @@ const WelcomeCanvas = () => {
     }
 
     return (
-        <div className='relative aspect-[2/3] h-screen w-full md:aspect-[16/9] shadow-custom'>
+        <div className='shadow-custom relative aspect-[2/3] h-screen w-full md:aspect-[16/9]'>
             <div className='absolute -z-10 h-full w-full bg-gray-900 [clip-path:inset(0_0_0_0)]'>
                 <div className='fixed left-0 top-0 h-full w-full'>
                     <Image
@@ -28,9 +29,10 @@ const WelcomeCanvas = () => {
             <div className='relative z-[2] m-auto flex h-full max-w-6xl select-none items-center justify-center text-white'>
                 <div className='flex flex-col gap-8'>
                     <div className='flex flex-col items-center gap-6'>
-                        <h1 className='text-2xl sm:text-3xl lg:text-4xl xl:text-5xl'>
+                        {/* <h1 className='text-2xl sm:text-3xl lg:text-4xl xl:text-5xl'>
                             Екатерина Безрукова
-                        </h1>
+                        </h1> */}
+                        <Logo className=' fill-[#FFD700] stroke-[#FFD700]' />
                         <p className='text-lg sm:text-xl lg:text-2xl xl:text-3xl'>
                             Преподаватель французского
                         </p>
