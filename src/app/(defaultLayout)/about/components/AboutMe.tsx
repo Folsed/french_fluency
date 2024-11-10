@@ -31,13 +31,13 @@ const AboutMe = () => {
                     <div className='mx-auto w-full max-w-7xl px-4 pb-48 md:px-6'>
                         <div className='flex flex-col justify-center'>
                             <div className='mx-auto w-full max-w-3xl'>
-                                <div className='relative space-y-8 before:absolute before:inset-0 before:ml-12 before:h-full before:w-0.5 before:-translate-x-px before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent md:before:mx-auto md:before:translate-x-0'>
+                                <div className='relative space-y-8 before:absolute before:inset-0 before:ml-12 before:h-full before:w-0.5 before:-translate-x-px before:bg-gradient-to-b before:from-transparent before:via-slate-500 before:to-transparent md:before:mx-auto md:before:translate-x-0'>
                                     {paragraphs.map((item, _) => (
                                         <div
                                             key={item.id}
-                                            className='relative flex items-center justify-center md:justify-normal md:odd:flex-row-reverse'
+                                            className='relative flex items-center justify-center md:justify-normal md:odd:flex-row-reverse text-font-hover'
                                         >
-                                            <div className='w-[calc(100%-4rem)] rounded border border-slate-200 bg-white p-4 shadow md:w-[calc(50%-2.5rem)]'>
+                                            <div className='w-[calc(100%-4rem)] rounded border border-slate-700 bg-[#1b1f23] p-4 shadow md:w-[calc(50%-2.5rem)]'>
                                                 <div className=''>
                                                     {item.text}
                                                 </div>
