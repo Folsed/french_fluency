@@ -28,7 +28,7 @@ const AboutMe = () => {
                 </div>
 
                 <section className='relative flex flex-col justify-center overflow-hidden'>
-                    <div className='mx-auto w-full max-w-7xl px-4 pb-48 md:px-6'>
+                    <div className='mx-auto w-full max-w-7xl px-4 pb-24 md:px-6'>
                         <div className='flex flex-col justify-center'>
                             <div className='mx-auto w-full max-w-3xl'>
                                 <div className='relative space-y-8 before:absolute before:inset-0 before:ml-12 before:h-full before:w-0.5 before:-translate-x-px before:bg-gradient-to-b before:from-transparent before:via-slate-500 before:to-transparent md:before:mx-auto md:before:translate-x-0'>
