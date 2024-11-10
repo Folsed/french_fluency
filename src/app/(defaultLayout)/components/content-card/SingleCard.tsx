@@ -1,9 +1,7 @@
 'use client'
 import { CourseDocument } from '@/models/Course'
 import Image from 'next/image'
-import React, { useState } from 'react'
-import AnimateModal from './AnimateModal'
-import CardDetails from './CardDetails'
+import React from 'react'
 import Link from 'next/link'
 
 interface IData {
@@ -13,7 +11,7 @@ interface IData {
 const SingleCard: React.FC<IData> = ({ data }) => {
     return (
         <div
-            className={`aspect-square h-full transition-colors duration-500 lg:aspect-[16/10]`}
+            className={`aspect-square h-full transition-colors duration-500 lg:aspect-[16/10] shadow-custom`}
         >
             <Link
                 href={`/course/${data.alias}`}

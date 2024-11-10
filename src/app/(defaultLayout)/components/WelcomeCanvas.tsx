@@ -10,7 +10,7 @@ const WelcomeCanvas = () => {
     }
 
     return (
-        <div className='relative aspect-[2/3] h-screen w-full md:aspect-[16/9]'>
+        <div className='relative aspect-[2/3] h-screen w-full md:aspect-[16/9] shadow-custom'>
             <div className='absolute -z-10 h-full w-full bg-gray-900 [clip-path:inset(0_0_0_0)]'>
                 <div className='fixed left-0 top-0 h-full w-full'>
                     <Image

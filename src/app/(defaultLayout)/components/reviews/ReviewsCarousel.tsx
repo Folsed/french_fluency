@@ -86,7 +86,7 @@ const ReviewsCarousel = () => {
             {revs.map((item, index) => (
                 <SwiperSlide id='sw-slide' key={item.id}>
                     <video
-                        className='select-none'
+                        className='select-none shadow-custom'
                         ref={(el) => {
                             if (el) {
                                 vidRef.current[index] = el
