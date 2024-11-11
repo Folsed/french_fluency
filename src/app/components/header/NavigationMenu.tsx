@@ -17,7 +17,7 @@ const NavigationMenu = () => {
 
     return (
         <div className='__navigation_menu lg:hidden'>
-            <button
+            {/* <button
                 className='flex items-center p-2'
                 onClick={() => setModalIs('nav-menu')}
             >
@@ -25,9 +25,28 @@ const NavigationMenu = () => {
                     size={32}
                     className='fill-font transition-colors duration-200 hover:fill-font-hover'
                 />
+            </button> */}
+            <button
+                className='flex items-center p-1'
+                onClick={() => setModalIs('nav-menu')}
+            >
+                <svg
+                    viewBox='0 0 32 32'
+                    className={`h-[44px] transition-[transform__cubic-bezier(0.4,0,0.2,1)] duration-500 ${modalIs === 'nav-menu' && 'rotate-45'}`}
+                >
+                    <path
+                        className={`fill-none stroke-white stroke-[2] transition-[stroke-dasharray_cubic-bezier(0.4,0,0.2,1),stroke-dashoffset_cubic-bezier(0.4,0,0.2,1)] duration-500 [stroke-dasharray:12_63] [stroke-linecap:round] [stroke-linejoin:round] ${modalIs === 'nav-menu' && '[stroke-dasharray:20_300] [stroke-dashoffset:-32.42]'}`}
+                        d='M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22'
+                    ></path>
+                    <path
+                        className='fill-none stroke-white stroke-[2] transition-[stroke-dasharray_600ms_cubic-bezier(0.4,0,0.2,1),stroke-dashoffset_600ms_cubic-bezier(0.4,0,0.2,1)] [stroke-linecap:round] [stroke-linejoin:round]'
+                        d='M7 16 27 16'
+                    ></path>
+                </svg>
             </button>
+
             <div
-                className={`absolute bottom-0 left-0 right-0 top-12 z-20 h-screen bg-[#000000] ${modalIs === 'nav-menu' ? 'opacity-100' : 'pointer-events-none opacity-0'} transition-opacity duration-200`}
+                className={`absolute bottom-0 left-0 right-0 top-[52px] z-20 h-screen bg-[#000000] ${modalIs === 'nav-menu' ? 'opacity-100' : 'pointer-events-none opacity-0'} transition-opacity duration-200`}
             >
                 <div className='mt-56 flex flex-col items-center justify-center text-font'>
                     {status === 'authenticated' && (
