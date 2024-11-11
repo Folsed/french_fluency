@@ -1,5 +1,4 @@
 'use client'
-
 import PaymentModal from '@/components/modals/PaymentModal'
 import convertToSubcurrency from '@/libs/convertToSubcurrency'
 import { WebNavigation } from '@/providers/NavigationProvider'
