@@ -72,6 +72,7 @@ const ReviewsCarousel = () => {
             effect={'coverflow'}
             centeredSlides={true}
             slidesPerView={'auto'}
+            modules={[EffectCoverflow]}
             coverflowEffect={{
                 rotate: 70,
                 stretch: 0,
@@ -80,7 +81,6 @@ const ReviewsCarousel = () => {
                 scale: 0.9,
                 slideShadows: true,
             }}
-            modules={[EffectCoverflow]}
             className='mySwiper'
         >
             {revs.map((item, index) => (
@@ -92,9 +92,11 @@ const ReviewsCarousel = () => {
                                 vidRef.current[index] = el
                             }
                         }}
+                        x-webkit-airplay='deny'
+                        playsInline
                         loop
                         muted
-                        preload='metadata'
+                        preload='auto'
                     >
                         <source src={item.src} type='video/mp4' />
                         Your browser does not support the video tag.
