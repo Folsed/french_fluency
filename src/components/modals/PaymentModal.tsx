@@ -9,6 +9,8 @@ import {
     useStripe,
 } from '@stripe/react-stripe-js'
 import { Suspense, useEffect, useState } from 'react'
+import { RxCross2 } from 'react-icons/rx'
+
 import Visa from '../svgs/Visa'
 
 const PaymentModal = ({ amount }: { amount: number }) => {
@@ -65,33 +67,46 @@ const PaymentModal = ({ amount }: { amount: number }) => {
 
     return (
         <div
-            className={`${modalIs === 'payment-modal' ? 'fixed' : 'fixed'} inset-0 flex justify-center items-center`}
+            className={`${modalIs === 'payment-modal' ? 'fixed' : 'fixed'} inset-0 flex items-center justify-center`}
         >
             <div
                 className='absolute inset-0 z-[2] flex bg-[#000000d1]'
                 onClick={() => setModalIs('')}
             />
-            <div className='z-[3] relative mx-6 flex w-full max-w-xl flex-col gap-12 rounded-md bg-purple-100 p-8'>
-                <h2 className='text-center text-3xl font-extrabold text-gray-800'>
-                    Оплата курса
-                </h2>
 
-                <form onSubmit={handleSubmit} className='flex flex-col gap-6'>
-                    {clientSecret && (
-                        <Suspense fallback={<span>Processing...</span>}>
-                            <PaymentElement />
-                        </Suspense>
-                    )}
-                    {errorMessage && <div>{errorMessage}</div>}
+            <div className='relative z-[3] mx-4 w-full max-w-xl overflow-hidden rounded-xl bg-slate-200'>
+                <button
+                    onClick={() => setModalIs('')}
+                    className='absolute right-0 top-0 m-2'
+                >
+                    <RxCross2 size={26} />
+                </button>
+                <div className='mx-auto max-w-md px-5 pb-14 pt-12 text-center'>
+                    <h2 className='text-center text-3xl font-extrabold text-gray-800'>
+                        Оплата курса
+                    </h2>
 
-                    <button
-                        disabled={!stripe || loading}
-                        type='submit'
-                        className='mb-2 me-2 inline-flex w-full items-center rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200 dark:focus:ring-gray-800'
+                    <form
+                        onSubmit={handleSubmit}
+                        className='flex flex-col gap-6'
                     >
-                        {loading ? 'Processing...' : `Pay ${amount}`}
-                    </button>
-                </form>
+                        <div className='min-h-[230px]'>
+                            {clientSecret && (
+                                <Suspense fallback={<span>Processing...</span>}>
+                                    <PaymentElement />
+                                </Suspense>
+                            )}
+                            {errorMessage && <div>{errorMessage}</div>}
+                        </div>
+                        <button
+                            disabled={!stripe || loading}
+                            type='submit'
+                            className='mb-2 me-2 inline-flex w-full items-center rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200 dark:focus:ring-gray-800'
+                        >
+                            {loading ? 'Processing...' : `Pay ${amount}`}
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     )
