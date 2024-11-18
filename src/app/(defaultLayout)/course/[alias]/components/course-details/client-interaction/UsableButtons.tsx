@@ -21,11 +21,11 @@ const UsableButtons = ({ amount }: { amount: number }) => {
         setModalIs('payment-modal')
     }
     return (
-        <div
-            className='flex flex-col gap-2 md:flex-row md:gap-2'
-            onClick={paymentModalHandler}
-        >
-            <button className='group relative flex h-[60px] w-full items-center justify-center gap-2 overflow-hidden bg-black text-white shadow-custom text-xl duration-300'>
+        <div className='flex flex-col gap-2 md:flex-row md:gap-2'>
+            <button
+                className='group relative flex h-[60px] w-full items-center justify-center gap-2 overflow-hidden bg-black text-xl text-white shadow-custom duration-300'
+                onClick={paymentModalHandler}
+            >
                 <div className='absolute left-[-100%] top-0 h-[150px] w-full rounded-[50%] bg-white mix-blend-difference duration-300 group-hover:translate-x-[100%] group-hover:translate-y-[-50%] group-hover:rounded-none' />
                 Pay
                 <FaRegCreditCard size={20} />
@@ -35,18 +35,18 @@ const UsableButtons = ({ amount }: { amount: number }) => {
                     Добавить в желаемое
                 </span>
             </button> */}
-            {/* {modalIs! === 'payment-modal' ? (
-            ) : null} */}
-            <Elements
-                stripe={stripePromise}
-                options={{
-                    mode: 'payment',
-                    amount: convertToSubcurrency(amount),
-                    currency: 'eur',
-                }}
-            >
-                {/* <PaymentModal amount={amount} /> */}
-            </Elements>
+            {modalIs! === 'payment-modal' ? (
+                <Elements
+                    stripe={stripePromise}
+                    options={{
+                        mode: 'payment',
+                        amount: convertToSubcurrency(amount),
+                        currency: 'eur',
+                    }}
+                >
+                    <PaymentModal amount={amount} />
+                </Elements>
+            ) : null}
         </div>
     )
 }

@@ -3,12 +3,13 @@
 import convertToSubcurrency from '@/libs/convertToSubcurrency'
 import { WebNavigation } from '@/providers/NavigationProvider'
 import {
-    Elements,
     PaymentElement,
     useElements,
     useStripe,
 } from '@stripe/react-stripe-js'
 import { Suspense, useEffect, useState } from 'react'
+import { RxCross2 } from 'react-icons/rx'
+
 import Visa from '../svgs/Visa'
 
 const PaymentModal = ({ amount }: { amount: number }) => {
@@ -65,11 +66,21 @@ const PaymentModal = ({ amount }: { amount: number }) => {
 
     return (
         <div
-            className={`${modalIs === 'payment-modal' ? 'fixed' : 'fixed'} bottom-0 left-0 right-0 top-12 z-10 lg:top-[60px]`}
-            // onClick={() => setModalIs('')}
+            className={`${modalIs === 'payment-modal' ? 'fixed' : 'fixed'} inset-0 flex items-center justify-center`}
         >
-            <div className='fixed top-12 flex h-full w-full items-center justify-center overflow-y-auto bg-[#000000e1] lg:top-[60px]'>
-                <div className='relative mx-6 flex w-full max-w-xl flex-col gap-12 rounded-md bg-purple-100 p-8'>
+            <div
+                className='absolute inset-0 z-[2] flex bg-[#000000d1]'
+                onClick={() => setModalIs('')}
+            />
+
+            <div className='relative z-[3] mx-4 w-full max-w-xl overflow-hidden rounded-xl bg-slate-200'>
+                <button
+                    onClick={() => setModalIs('')}
+                    className='absolute right-0 top-0 m-2'
+                >
+                    <RxCross2 size={26} />
+                </button>
+                <div className='mx-auto max-w-md px-5 pb-14 pt-12 text-center'>
                     <h2 className='text-center text-3xl font-extrabold text-gray-800'>
                         Оплата курса
                     </h2>
@@ -78,13 +89,14 @@ const PaymentModal = ({ amount }: { amount: number }) => {
                         onSubmit={handleSubmit}
                         className='flex flex-col gap-6'
                     >
-                        {clientSecret && (
-                            <Suspense fallback={<span>Processing...</span>}>
-                                <PaymentElement />
-                            </Suspense>
-                        )}
-                        {errorMessage && <div>{errorMessage}</div>}
-
+                        <div className='min-h-[230px]'>
+                            {clientSecret && (
+                                <Suspense fallback={<span>Processing...</span>}>
+                                    <PaymentElement />
+                                </Suspense>
+                            )}
+                            {errorMessage && <div>{errorMessage}</div>}
+                        </div>
                         <button
                             disabled={!stripe || loading}
                             type='submit'
