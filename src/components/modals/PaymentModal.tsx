@@ -3,7 +3,6 @@
 import convertToSubcurrency from '@/libs/convertToSubcurrency'
 import { WebNavigation } from '@/providers/NavigationProvider'
 import {
-    Elements,
     PaymentElement,
     useElements,
     useStripe,

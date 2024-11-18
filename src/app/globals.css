@@ -29,8 +29,17 @@
         --background-color: #14181c;
 
         --font-secondary: #ffd700;
+
+        
+
+        --color-first: #235234;
+        --color-second: #235234;
+        --color-third: #235234;
+        --color-fourth: #235234;
     }
 }
+
+
 
 ::-webkit-scrollbar {
     width: 0px;
@@ -96,3 +105,4 @@
 .scroll-blocked {
     overflow: hidden;
 }
+
