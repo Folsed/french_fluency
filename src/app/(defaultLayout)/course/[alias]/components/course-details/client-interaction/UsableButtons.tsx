@@ -14,7 +14,13 @@ if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY === undefined) {
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
-const UsableButtons = ({ amount }: { amount: number }) => {
+interface ICheckout {
+    amount: number
+    name: string
+    image: string
+}
+
+const UsableButtons: React.FC<ICheckout> = ({ amount, name, image }) => {
     const { modalIs, setModalIs } = WebNavigation()
 
     const paymentModalHandler = () => {
@@ -35,7 +41,7 @@ const UsableButtons = ({ amount }: { amount: number }) => {
                     Добавить в желаемое
                 </span>
             </button> */}
-            {modalIs! === 'payment-modal' ? (
+            {modalIs === 'payment-modal' ? (
                 <Elements
                     stripe={stripePromise}
                     options={{
@@ -44,7 +50,7 @@ const UsableButtons = ({ amount }: { amount: number }) => {
                         currency: 'eur',
                     }}
                 >
-                    <PaymentModal amount={amount} />
+                    <PaymentModal amount={amount} name={name} image={image} />
                 </Elements>
             ) : null}
         </div>
