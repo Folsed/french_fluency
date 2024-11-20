@@ -3,6 +3,7 @@
 import convertToSubcurrency from '@/libs/convertToSubcurrency'
 import { WebNavigation } from '@/providers/NavigationProvider'
 import {
+    LinkAuthenticationElement,
     PaymentElement,
     useElements,
     useStripe,
@@ -92,6 +93,7 @@ const PaymentModal = ({ amount }: { amount: number }) => {
                         <div className='min-h-[230px]'>
                             {clientSecret && (
                                 <Suspense fallback={<span>Processing...</span>}>
+                                    <LinkAuthenticationElement/>
                                     <PaymentElement />
                                 </Suspense>
                             )}
