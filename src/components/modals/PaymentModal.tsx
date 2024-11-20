@@ -11,6 +11,7 @@ import {
 import Image from 'next/image'
 import { Suspense, useEffect, useState } from 'react'
 import { RxCross2 } from 'react-icons/rx'
+import { MdOutlineEuro } from 'react-icons/md'
 
 interface ICheckout {
     amount: number
@@ -79,55 +80,27 @@ const PaymentModal: React.FC<ICheckout> = ({ amount, name, image }) => {
                 onClick={() => setModalIs('')}
             />
 
-            {/* <div className='relative z-[3] mx-4 w-full max-w-xl overflow-hidden rounded-xl bg-slate-200'>
-                <button
-                    onClick={() => setModalIs('')}
-                    className='absolute right-0 top-0 m-2'
-                >
-                    <RxCross2 size={26} />
-                </button>
-                <div className='mx-auto max-w-md px-5 pb-14 pt-12 text-center'>
-                    <h2 className='text-center text-3xl font-extrabold text-gray-800'>
-                        Оплата курса
-                    </h2>
-
-                    <form
-                        onSubmit={handleSubmit}
-                        className='flex flex-col gap-6'
-                    >
-                        <div className='min-h-[230px]'>
-                            {clientSecret && (
-                                <Suspense fallback={<span>Processing...</span>}>
-                                    <LinkAuthenticationElement/>
-                                    <PaymentElement />
-                                </Suspense>
-                            )}
-                            {errorMessage && <div>{errorMessage}</div>}
-                        </div>
-                        <button
-                            disabled={!stripe || loading}
-                            type='submit'
-                            className='mb-2 me-2 inline-flex w-full items-center rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200 dark:focus:ring-gray-800'
-                        >
-                            {loading ? 'Processing...' : `Pay ${amount}`}
-                        </button>
-                    </form>
-                </div>
-            </div> */}
             <div className='relative z-[3] mx-4 flex h-[654px] w-[80%] max-w-[1576px]'>
-                <div className='lg:relative z-[4] flex-1 bg-black lg:flex justify-center absolute max-lg:-inset-4'>
-                    <h1 className='z-[2] relative text-4xl text-font mt-24 text-center uppercase font-bold max-w-sm max-lg:hidden'>{name}</h1>
+                <div className='absolute z-[4] flex-1 select-none justify-center bg-black max-lg:-inset-4 lg:relative lg:flex'>
+                    <h1 className='relative z-[2] mt-24 max-w-sm pr-24 text-center text-2xl font-bold uppercase text-font max-lg:hidden xl:pr-12 xl:text-3xl'>
+                        {name}
+                    </h1>
                     <Image
                         src={image}
                         alt={name}
-                        className='z-[1] h-full w-[640px] bg-cover bg-no-repeat object-cover lg:opacity-20 opacity-50'
+                        className='pointer-events-none z-[1] h-full w-[640px] select-none bg-cover bg-no-repeat object-cover opacity-50 lg:opacity-20'
                         fill
                     />
                 </div>
                 <div className='flex h-full w-full flex-1 items-center max-lg:justify-center'>
-                    <div className='z-[5] lg:-ml-24 w-full max-w-xl lg:min-w-[550px] lg:h-[93%] h-full bg-slate-200 shadow-custom flex items-center justify-center'>
-
-                        <div className='w-[87.333%] text-center justify-center'>
+                    <div className='relative z-[5] flex h-full w-full max-w-xl items-center justify-center overflow-y-scroll bg-slate-200 shadow-custom lg:-ml-24 lg:h-[93%] lg:min-w-[550px]'>
+                        {/* <button
+                            onClick={() => setModalIs('')}
+                            className='fixed right-4 top-4'
+                        >
+                            <RxCross2 size={24} />
+                        </button> */}
+                        <div className='h-fit w-[87.333%]'>
                             <h2 className='text-center text-3xl font-extrabold text-gray-800'>
                                 Оплата курса
                             </h2>
@@ -143,7 +116,7 @@ const PaymentModal: React.FC<ICheckout> = ({ amount, name, image }) => {
                                                 <span>Processing...</span>
                                             }
                                         >
-                                            <LinkAuthenticationElement />
+                                            <LinkAuthenticationElement className='mb-4' />
                                             <PaymentElement />
                                         </Suspense>
                                     )}
@@ -152,11 +125,16 @@ const PaymentModal: React.FC<ICheckout> = ({ amount, name, image }) => {
                                 <button
                                     disabled={!stripe || loading}
                                     type='submit'
-                                    className='mb-2 me-2 inline-flex w-full items-center rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-700 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200 dark:focus:ring-gray-800'
+                                    className='mb-2 me-2 flex w-full items-center justify-center rounded-lg bg-black px-5 py-2.5 text-center text-sm font-medium text-font-hover shadow-custom'
                                 >
                                     {loading
                                         ? 'Processing...'
                                         : `Pay ${amount}`}
+                                    {
+                                        <i>
+                                            <MdOutlineEuro />
+                                        </i>
+                                    }
                                 </button>
                             </form>
                         </div>

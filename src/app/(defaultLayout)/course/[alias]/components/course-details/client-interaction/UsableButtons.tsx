@@ -41,18 +41,18 @@ const UsableButtons: React.FC<ICheckout> = ({ amount, name, image }) => {
                     Добавить в желаемое
                 </span>
             </button> */}
-            {/* {modalIs === 'payment-modal' ? (
-            ) : null} */}
-            <Elements
-                stripe={stripePromise}
-                options={{
-                    mode: 'payment',
-                    amount: convertToSubcurrency(amount),
-                    currency: 'eur',
-                }}
-            >
-                <PaymentModal amount={amount} name={name} image={image} />
-            </Elements>
+            {modalIs === 'payment-modal' ? (
+                <Elements
+                    stripe={stripePromise}
+                    options={{
+                        mode: 'payment',
+                        amount: convertToSubcurrency(amount),
+                        currency: 'eur',
+                    }}
+                >
+                    <PaymentModal amount={amount} name={name} image={image} />
+                </Elements>
+            ) : null}
         </div>
     )
 }
