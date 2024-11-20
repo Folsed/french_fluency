@@ -114,17 +114,18 @@ const PaymentModal: React.FC<ICheckout> = ({ amount, name, image }) => {
                     </form>
                 </div>
             </div> */}
-            <div className='relative z-[3] mx-4 flex h-[654px] w-[80%] max-w-[1576px] overflow-hidden'>
-                <div className='relative z-[4] flex-1'>
+            <div className='relative z-[3] mx-4 flex h-[654px] w-[80%] max-w-[1576px]'>
+                <div className='lg:relative z-[4] flex-1 bg-black lg:flex justify-center absolute max-lg:-inset-4'>
+                    <h1 className='z-[2] relative text-4xl text-font mt-24 text-center uppercase font-bold max-w-sm max-lg:hidden'>{name}</h1>
                     <Image
                         src={image}
                         alt={name}
-                        className='h-full w-[640px] bg-cover bg-no-repeat object-cover'
+                        className='z-[1] h-full w-[640px] bg-cover bg-no-repeat object-cover lg:opacity-20 opacity-50'
                         fill
                     />
                 </div>
-                <div className='flex h-full w-full flex-1 items-center'>
-                    <div className='z-[5] -ml-24 w-full max-w-xl min-w-[550px] h-[93%] bg-slate-200 shadow-custom flex items-center justify-center'>
+                <div className='flex h-full w-full flex-1 items-center max-lg:justify-center'>
+                    <div className='z-[5] lg:-ml-24 w-full max-w-xl lg:min-w-[550px] lg:h-[93%] h-full bg-slate-200 shadow-custom flex items-center justify-center'>
 
                         <div className='w-[87.333%] text-center justify-center'>
                             <h2 className='text-center text-3xl font-extrabold text-gray-800'>
