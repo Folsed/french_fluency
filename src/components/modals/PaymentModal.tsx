@@ -82,7 +82,7 @@ const PaymentModal: React.FC<ICheckout> = ({ amount, name, image }) => {
 
             <div className='relative z-[3] mx-4 flex h-[654px] w-[80%] max-w-[1576px]'>
                 <div className='absolute z-[4] flex-1 select-none justify-center bg-black max-lg:-inset-4 lg:relative lg:flex'>
-                    <h1 className='relative z-[2] mt-24 max-w-sm pr-24 text-center text-2xl font-bold uppercase text-font max-lg:hidden xl:pr-12 xl:text-3xl'>
+                    <h1 className='relative z-[2] mt-24 max-w-sm pr-24 text-center text-2xl font-bold uppercase text-font-hover max-lg:hidden xl:pr-12 xl:text-3xl'>
                         {name}
                     </h1>
                     <Image
