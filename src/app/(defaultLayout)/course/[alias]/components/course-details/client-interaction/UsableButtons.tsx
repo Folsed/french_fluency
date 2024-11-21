@@ -48,6 +48,7 @@ const UsableButtons: React.FC<ICheckout> = ({ amount, name, image }) => {
                         mode: 'payment',
                         amount: convertToSubcurrency(amount),
                         currency: 'eur',
+                        appearance: { theme: 'stripe' },
                     }}
                 >
                     <PaymentModal amount={amount} name={name} image={image} />
