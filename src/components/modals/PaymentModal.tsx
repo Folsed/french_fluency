@@ -1,5 +1,4 @@
 'use client'
-
 import convertToSubcurrency from '@/libs/convertToSubcurrency'
 import { WebNavigation } from '@/providers/NavigationProvider'
 import {
@@ -12,6 +11,7 @@ import Image from 'next/image'
 import { Suspense, useEffect, useState } from 'react'
 import { RxCross2 } from 'react-icons/rx'
 import { MdOutlineEuro } from 'react-icons/md'
+import { useSession } from 'next-auth/react'
 
 interface ICheckout {
     amount: number
@@ -23,13 +23,14 @@ const PaymentModal: React.FC<ICheckout> = ({ amount, name, image }) => {
     const { modalIs, setModalIs } = WebNavigation()
     const stripe = useStripe()
     const elements = useElements()
+    const { data } = useSession()
 
     const [errorMessage, setErrorMessage] = useState<string>('')
     const [clientSecret, setClientSecret] = useState<string>('')
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        fetch('/api/create-payment-intent', {
+        fetch(`/api/create-payment-intent?COURSE_NAME=${name}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -38,7 +39,7 @@ const PaymentModal: React.FC<ICheckout> = ({ amount, name, image }) => {
         })
             .then((res) => res.json())
             .then((data) => setClientSecret(data.clientSecret))
-    }, [amount])
+    }, [amount, name])
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -112,7 +113,15 @@ const PaymentModal: React.FC<ICheckout> = ({ amount, name, image }) => {
                                         className='flex flex-col gap-6'
                                     >
                                         <div className=''>
-                                            <LinkAuthenticationElement className='mb-4' />
+                                            <LinkAuthenticationElement
+                                                options={{
+                                                    defaultValues: {
+                                                        email: data?.user
+                                                            ?.email as string || '',
+                                                    },
+                                                }}
+                                                className='mb-4'
+                                            />
                                             <PaymentElement />
                                         </div>
                                         <button
@@ -120,14 +129,16 @@ const PaymentModal: React.FC<ICheckout> = ({ amount, name, image }) => {
                                             type='submit'
                                             className='mb-14 me-2 flex w-full items-center justify-center rounded-lg bg-black px-5 py-2.5 text-center text-sm font-medium text-font-hover shadow-custom'
                                         >
-                                            {loading
-                                                ? 'Processing...'
-                                                : `Pay ${amount}`}
-                                            {
-                                                <i>
-                                                    <MdOutlineEuro />
-                                                </i>
-                                            }
+                                            {loading ? (
+                                                'Processing...'
+                                            ) : (
+                                                <>
+                                                    Pay {amount}{' '}
+                                                    <i>
+                                                        <MdOutlineEuro />
+                                                    </i>
+                                                </>
+                                            )}
                                         </button>
                                     </form>
                                 </Suspense>
