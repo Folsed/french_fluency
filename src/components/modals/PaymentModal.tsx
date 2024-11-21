@@ -94,12 +94,12 @@ const PaymentModal: React.FC<ICheckout> = ({ amount, name, image }) => {
                 </div>
                 <div className='relative flex h-full w-full flex-1 items-center max-lg:justify-center'>
                     <div className='relative z-[5] flex h-full w-full max-w-xl scroll-my-32 items-center justify-center overflow-y-auto bg-slate-200 shadow-custom lg:-ml-24 lg:h-[93%] lg:min-w-[550px]'>
-                        {/* <button
+                        <button
                             onClick={() => setModalIs('')}
-                            className='fixed right-4 top-4'
+                            className='absolute right-4 top-4'
                         >
                             <RxCross2 size={24} />
-                        </button> */}
+                        </button>
                         <div className='h-[87.333%] w-[87.333%]'>
                             <h2 className='text-center text-3xl font-extrabold text-gray-800'>
                                 Оплата курса
@@ -111,7 +111,7 @@ const PaymentModal: React.FC<ICheckout> = ({ amount, name, image }) => {
                                         onSubmit={handleSubmit}
                                         className='flex flex-col gap-6'
                                     >
-                                        <div className='min-h-[230px]'>
+                                        <div className=''>
                                             <LinkAuthenticationElement className='mb-4' />
                                             <PaymentElement />
                                         </div>
