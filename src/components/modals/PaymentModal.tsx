@@ -73,7 +73,7 @@ const PaymentModal: React.FC<ICheckout> = ({ amount, name, image }) => {
 
     return (
         <div
-            className={`${modalIs === 'payment-modal' ? 'fixed' : 'fixed'} inset-0 flex items-center justify-center`}
+            className={`${modalIs === 'payment-modal' ? 'fixed' : 'none'} inset-0 flex items-center justify-center`}
         >
             <div
                 className='absolute inset-0 z-[2] flex bg-[#000000d1]'
@@ -92,51 +92,46 @@ const PaymentModal: React.FC<ICheckout> = ({ amount, name, image }) => {
                         fill
                     />
                 </div>
-                <div className='flex h-full w-full flex-1 items-center max-lg:justify-center'>
-                    <div className='relative z-[5] flex h-full w-full max-w-xl items-center justify-center overflow-y-scroll bg-slate-200 shadow-custom lg:-ml-24 lg:h-[93%] lg:min-w-[550px]'>
+                <div className='relative flex h-full w-full flex-1 items-center max-lg:justify-center'>
+                    <div className='relative z-[5] flex h-full w-full max-w-xl scroll-my-32 items-center justify-center overflow-y-auto bg-slate-200 shadow-custom lg:-ml-24 lg:h-[93%] lg:min-w-[550px]'>
                         {/* <button
                             onClick={() => setModalIs('')}
                             className='fixed right-4 top-4'
                         >
                             <RxCross2 size={24} />
                         </button> */}
-                        <div className='h-fit w-[87.333%]'>
+                        <div className='h-[87.333%] w-[87.333%]'>
                             <h2 className='text-center text-3xl font-extrabold text-gray-800'>
                                 Оплата курса
                             </h2>
 
-                            <form
-                                onSubmit={handleSubmit}
-                                className='flex flex-col gap-6'
-                            >
-                                <div className='min-h-[230px]'>
-                                    {clientSecret && (
-                                        <Suspense
-                                            fallback={
-                                                <span>Processing...</span>
-                                            }
-                                        >
+                            {clientSecret && (
+                                <Suspense fallback={<span>Processing...</span>}>
+                                    <form
+                                        onSubmit={handleSubmit}
+                                        className='flex flex-col gap-6'
+                                    >
+                                        <div className='min-h-[230px]'>
                                             <LinkAuthenticationElement className='mb-4' />
                                             <PaymentElement />
-                                        </Suspense>
-                                    )}
-                                    {errorMessage && <div>{errorMessage}</div>}
-                                </div>
-                                <button
-                                    disabled={!stripe || loading}
-                                    type='submit'
-                                    className='mb-2 me-2 flex w-full items-center justify-center rounded-lg bg-black px-5 py-2.5 text-center text-sm font-medium text-font-hover shadow-custom'
-                                >
-                                    {loading
-                                        ? 'Processing...'
-                                        : `Pay ${amount}`}
-                                    {
-                                        <i>
-                                            <MdOutlineEuro />
-                                        </i>
-                                    }
-                                </button>
-                            </form>
+                                        </div>
+                                        <button
+                                            disabled={!stripe || loading}
+                                            type='submit'
+                                            className='mb-14 me-2 flex w-full items-center justify-center rounded-lg bg-black px-5 py-2.5 text-center text-sm font-medium text-font-hover shadow-custom'
+                                        >
+                                            {loading
+                                                ? 'Processing...'
+                                                : `Pay ${amount}`}
+                                            {
+                                                <i>
+                                                    <MdOutlineEuro />
+                                                </i>
+                                            }
+                                        </button>
+                                    </form>
+                                </Suspense>
+                            )}
                         </div>
                     </div>
                 </div>
