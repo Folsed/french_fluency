@@ -21,7 +21,11 @@ interface ICheckout {
     courseImage: string
 }
 
-const PaymentModal: React.FC<ICheckout> = ({ courseAmount, courseName, courseImage }) => {
+const PaymentModal: React.FC<ICheckout> = ({
+    courseAmount,
+    courseName,
+    courseImage,
+}) => {
     const { modalIs, setModalIs } = WebNavigation()
     const stripe = useStripe()
     const elements = useElements()
@@ -71,7 +75,7 @@ const PaymentModal: React.FC<ICheckout> = ({ courseAmount, courseName, courseIma
             elements,
             clientSecret,
             confirmParams: {
-                return_url: process.env.NEXT_PUBLIC_LIVE_SERVER as string,
+                return_url: `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/payment-success?COURSE_NAME=${encodeURIComponent(courseName)}&COURSE_AMOUNT=${courseAmount}`,
             },
         })
 
@@ -89,7 +93,10 @@ const PaymentModal: React.FC<ICheckout> = ({ courseAmount, courseName, courseIma
             <Backdrop onClick={() => setModalIs('')} />
 
             <div className='relative z-[3] mx-4 flex h-[654px] w-[80%] max-w-[1576px]'>
-                <CourseImage courseName={courseName} courseImage={courseImage} />
+                <CourseImage
+                    courseName={courseName}
+                    courseImage={courseImage}
+                />
 
                 <div className='relative flex h-full w-full flex-1 items-center max-lg:justify-center'>
                     <div className='relative z-[5] flex h-full w-full max-w-xl scroll-my-32 items-center justify-center overflow-y-auto bg-slate-200 shadow-custom lg:-ml-24 lg:h-[93%] lg:min-w-[550px]'>
@@ -119,7 +126,13 @@ const Backdrop = ({ onClick }: { onClick: () => void }) => (
     />
 )
 
-const CourseImage = ({ courseName, courseImage }: { courseName: string; courseImage: string }) => (
+const CourseImage = ({
+    courseName,
+    courseImage,
+}: {
+    courseName: string
+    courseImage: string
+}) => (
     <div className='absolute z-[4] flex-1 select-none justify-center bg-black max-lg:-inset-4 lg:relative lg:flex'>
         <h1 className='relative z-[2] mt-24 max-w-sm pr-24 text-center text-2xl font-bold uppercase text-font-hover max-lg:hidden xl:pr-12 xl:text-3xl'>
             {courseName}
@@ -183,8 +196,14 @@ const PaymentForm = ({
                     type='submit'
                     className='mb-14 me-2 flex w-full items-center justify-center rounded-lg bg-black px-5 py-2.5 text-center text-sm font-medium text-font-hover shadow-custom'
                 >
-                    {loading ? 'Processing...' : `Pay ${courseAmount} `}
-                    <MdOutlineEuro />
+                    {loading ? (
+                        'Processing...'
+                    ) : (
+                        <div className='flex flex-row items-center'>
+                            Pay {courseAmount}
+                            <MdOutlineEuro />
+                        </div>
+                    )}
                 </button>
             </form>
         )}
