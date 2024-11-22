@@ -10,15 +10,16 @@ const PaymentSuccessPage = () => {
     const searchParams = useSearchParams()
     const router = useRouter()
 
-    if (
-        !searchParams.has('COURSE_NAME') &&
-        !searchParams.has('COURSE_AMOUNT')
-    ) {
+    const courseName = searchParams.get('COURSE_NAME')
+    const courseAmount = searchParams.get('COURSE_AMOUNT')
+
+    if (!courseName || !courseAmount) {
         router.push('/')
+        return null
     }
 
     return (
-        <React.Fragment>
+        <Suspense fallback={<Spinner />}>
             <div className='flex min-h-[100dvh] flex-col items-center justify-center px-4 py-12 md:px-6 md:py-24 lg:py-32'>
                 <div className='max-w-md space-y-4 text-center'>
                     <div className='inline-flex rounded-full bg-green-400 p-2'>
@@ -36,26 +37,24 @@ const PaymentSuccessPage = () => {
             <div className='border-t border-gray-900 bg-black py-24 shadow-custom'>
                 <div className='container mx-auto px-4 md:px-6'>
                     <div className='mx-auto max-w-md space-y-6'>
-                        <Suspense fallback={<Spinner/>  }>
-                            <div className='flex flex-col gap-4 rounded border border-slate-700 bg-[#1b1f23] p-6'>
-                                <h1 className='text-3xl text-font-hover'>
-                                    Payment Details
-                                </h1>
-                                <div className='flex items-center justify-between'>
-                                    <div className='text-font-hover'>Курс</div>
-                                    <div className='font-medium text-font-secondary'>
-                                        {searchParams.get('COURSE_NAME')}
-                                    </div>
-                                </div>
-                                <div className='flex items-center justify-between'>
-                                    <div className='text-font-hover'>Цена</div>
-                                    <div className='flex items-center font-medium text-font-secondary'>
-                                        {searchParams.get('COURSE_AMOUNT')}
-                                        <MdOutlineEuro />
-                                    </div>
+                        <div className='flex flex-col gap-4 rounded border border-slate-700 bg-[#1b1f23] p-6'>
+                            <h1 className='text-3xl text-font-hover'>
+                                Payment Details
+                            </h1>
+                            <div className='flex items-center justify-between'>
+                                <div className='text-font-hover'>Курс</div>
+                                <div className='font-medium text-font-secondary'>
+                                    {courseName}
                                 </div>
                             </div>
-                        </Suspense>
+                            <div className='flex items-center justify-between'>
+                                <div className='text-font-hover'>Цена</div>
+                                <div className='flex items-center font-medium text-font-secondary'>
+                                    {courseAmount}
+                                    <MdOutlineEuro />
+                                </div>
+                            </div>
+                        </div>
 
                         <Link
                             href='/'
@@ -67,7 +66,7 @@ const PaymentSuccessPage = () => {
                     </div>
                 </div>
             </div>
-        </React.Fragment>
+        </Suspense>
     )
 }
 export default PaymentSuccessPage
