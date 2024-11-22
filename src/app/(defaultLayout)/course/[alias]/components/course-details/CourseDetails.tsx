@@ -66,7 +66,7 @@ const CourseDetails = ({ data }: { data: CourseDocument }) => {
                     </section>
                     <div className='flex max-w-5xl flex-col gap-4 px-2 md:mx-auto'>
                         <Details data={data} />
-                        <UsableButtons amount={data.price} name={data.title} image={data.image} />
+                        <UsableButtons courseAmount={data.price} courseName={data.title} courseImage={data.image} />
                     </div>
                 </div>
             </div>
