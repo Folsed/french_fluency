@@ -1,13 +1,21 @@
 'use client'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 import React from 'react'
 import { FaCheck } from 'react-icons/fa6'
 import { MdOutlineEuro } from 'react-icons/md'
 
-
 const PaymentSuccessPage = () => {
     const searchParams = useSearchParams()
+    const router = useRouter()
+
+    if (
+        !searchParams.has('COURSE_NAME') &&
+        !searchParams.has('COURSE_AMOUNT')
+    ) {
+        router.push('/')
+    }
+
     return (
         <React.Fragment>
             <div className='flex min-h-[100dvh] flex-col items-center justify-center px-4 py-12 md:px-6 md:py-24 lg:py-32'>
@@ -24,11 +32,13 @@ const PaymentSuccessPage = () => {
                     </p>
                 </div>
             </div>
-            <div className='py-24 bg-black border-t border-gray-900 shadow-custom'>
-                <div className='container px-4 md:px-6'>
+            <div className='border-t border-gray-900 bg-black py-24 shadow-custom'>
+                <div className='container px-4 md:px-6 mx-auto'>
                     <div className='mx-auto max-w-md space-y-6'>
                         <div className='flex flex-col gap-4 rounded border border-slate-700 bg-[#1b1f23] p-6'>
-                            <h1 className='text-3xl text-font-hover'>Payment Details</h1>
+                            <h1 className='text-3xl text-font-hover'>
+                                Payment Details
+                            </h1>
                             <div className='flex items-center justify-between'>
                                 <div className='text-font-hover'>Курс</div>
                                 <div className='font-medium text-font-secondary'>
@@ -36,19 +46,10 @@ const PaymentSuccessPage = () => {
                                 </div>
                             </div>
                             <div className='flex items-center justify-between'>
-                                <div className='text-font-hover'>
-                                    Цена
-                                </div>
-                                <div className='font-medium text-font-secondary flex items-center'>
-                                    {searchParams.get('COURSE_AMOUNT')}<MdOutlineEuro/>
-                                </div>
-                            </div>
-                            <div className='flex items-center justify-between'>
-                                <div className='text-font-hover'>
-                                    Transaction ID
-                                </div>
-                                <div className='font-medium text-font-secondary'>
-                                    123456789
+                                <div className='text-font-hover'>Цена</div>
+                                <div className='flex items-center font-medium text-font-secondary'>
+                                    {searchParams.get('COURSE_AMOUNT')}
+                                    <MdOutlineEuro />
                                 </div>
                             </div>
                         </div>
