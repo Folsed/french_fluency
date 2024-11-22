@@ -3,20 +3,19 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 export const POST = async (request: NextRequest) => {
     const url = new URL(request.url)
-    const courseName =
-        url.searchParams.get('COURSE_NAME') || 'plug'
+    const courseName = url.searchParams.get('COURSE_NAME') || 'plug'
 
     try {
-        const { amount } = await request.json()
+        const { courseAmount } = await request.json()
 
         const paymentIntent = await stripe.paymentIntents.create({
-            amount: amount,
+            amount: courseAmount,
             currency: 'eur',
             automatic_payment_methods: { enabled: true },
             metadata: {
-                COURSE_NAME: courseName ,
+                COURSE_NAME: courseName,
             },
-            description: courseName
+            description: courseName,
         })
 
         return NextResponse.json({ clientSecret: paymentIntent.client_secret })

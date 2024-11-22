@@ -15,12 +15,12 @@ if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY === undefined) {
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 interface ICheckout {
-    amount: number
-    name: string
-    image: string
+    courseAmount: number
+    courseName: string
+    courseImage: string
 }
 
-const UsableButtons: React.FC<ICheckout> = ({ amount, name, image }) => {
+const UsableButtons: React.FC<ICheckout> = ({ courseAmount, courseName, courseImage }) => {
     const { modalIs, setModalIs } = WebNavigation()
 
     const paymentModalHandler = () => {
@@ -46,12 +46,12 @@ const UsableButtons: React.FC<ICheckout> = ({ amount, name, image }) => {
                     stripe={stripePromise}
                     options={{
                         mode: 'payment',
-                        amount: convertToSubcurrency(amount),
+                        amount: convertToSubcurrency(courseAmount),
                         currency: 'eur',
                         appearance: { theme: 'stripe' },
                     }}
                 >
-                    <PaymentModal amount={amount} name={name} image={image} />
+                    <PaymentModal courseAmount={courseAmount} courseName={courseName} courseImage={courseImage} />
                 </Elements>
             ) : null}
         </div>
