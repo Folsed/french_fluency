@@ -11,7 +11,7 @@ interface IData {
 const SingleCard: React.FC<IData> = ({ data }) => {
     return (
         <div
-            className={`aspect-square h-full transition-colors duration-500 lg:aspect-[16/10] shadow-custom`}
+            className={`aspect-square h-full shadow-custom transition-colors duration-500 lg:aspect-[16/10]`}
         >
             <Link
                 href={`/course/${data.alias}`}

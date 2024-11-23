@@ -6,7 +6,7 @@ const AboutMe = () => {
         <section className='w-full overflow-hidden'>
             <div className='mx-auto w-full'>
                 {/* User Cover IMAGE */}
-                <div className='shadow-custom relative h-[12.5rem] w-full bg-gray-900 sm:h-[16rem] md:h-[19rem] lg:h-[22rem] xl:h-[25rem]'>
+                <div className='relative h-[12.5rem] w-full bg-gray-900 shadow-custom sm:h-[16rem] md:h-[19rem] lg:h-[22rem] xl:h-[25rem]'>
                     <Image
                         src='/about-cover.jpg'
                         alt='User Cover'
@@ -23,7 +23,7 @@ const AboutMe = () => {
                         width={500}
                         height={500}
                         priority
-                        className='shadow-custom relative bottom-[5rem] h-[10rem] w-[10rem] rounded-full bg-gray-900 object-cover outline outline-2 outline-offset-2 outline-yellow-500 md:bottom-[6rem] md:h-[12rem] md:w-[12rem] lg:bottom-[8rem] lg:h-[16rem] lg:w-[16rem] xl:bottom-[7rem] xl:h-[16rem] xl:w-[16rem]'
+                        className='relative bottom-[5rem] h-[10rem] w-[10rem] rounded-full bg-gray-900 object-cover shadow-custom outline outline-2 outline-offset-2 outline-yellow-500 md:bottom-[6rem] md:h-[12rem] md:w-[12rem] lg:bottom-[8rem] lg:h-[16rem] lg:w-[16rem] xl:bottom-[7rem] xl:h-[16rem] xl:w-[16rem]'
                     />
                 </div>
 
@@ -37,7 +37,7 @@ const AboutMe = () => {
                                             key={item.id}
                                             className='relative flex items-center justify-center text-font-hover md:justify-normal md:odd:flex-row-reverse'
                                         >
-                                            <div className='shadow-custom w-[calc(100%-4rem)] rounded border border-slate-700 bg-[#1b1f23] p-4 md:w-[calc(50%-2.5rem)]'>
+                                            <div className='w-[calc(100%-4rem)] rounded border border-slate-700 bg-[#1b1f23] p-4 shadow-custom md:w-[calc(50%-2.5rem)]'>
                                                 <div className=''>
                                                     {item.text}
                                                 </div>

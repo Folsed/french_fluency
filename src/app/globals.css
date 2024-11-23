@@ -6,7 +6,7 @@
     body {
         --gap: 5em;
         --line: 1px;
-        --color: rgba(255, 255, 255, 0.060);
+        --color: rgba(255, 255, 255, 0.06);
 
         background-image: linear-gradient(
                 -90deg,
@@ -30,16 +30,12 @@
 
         --font-secondary: #ffd700;
 
-        
-
         --color-first: #235234;
         --color-second: #235234;
         --color-third: #235234;
         --color-fourth: #235234;
     }
 }
-
-
 
 ::-webkit-scrollbar {
     width: 0px;
@@ -105,4 +101,3 @@
 .scroll-blocked {
     overflow: hidden;
 }
-

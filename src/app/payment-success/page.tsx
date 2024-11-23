@@ -1,5 +1,4 @@
 'use client'
-
 import { Suspense } from 'react'
 import PaymentScreen from './components/PaymentScreen'
 

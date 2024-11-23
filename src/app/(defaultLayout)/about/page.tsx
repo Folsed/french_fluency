@@ -5,7 +5,7 @@ const AboutMePage = () => {
     return (
         <section className='about'>
             <AboutMe />
-            <Cube/>
+            <Cube />
         </section>
     )
 }

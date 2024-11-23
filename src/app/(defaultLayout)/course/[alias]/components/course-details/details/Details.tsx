@@ -46,14 +46,16 @@ const Details = ({ data }: { data: CourseDocument }) => {
                 <h3>{formatText(data.access_time)}</h3>
             </div>
             <div className='flex items-center gap-2 text-2xl'>
-                <h3 className='text-font-secondary flex items-center gap-2'>
+                <h3 className='flex items-center gap-2 text-font-secondary'>
                     <MdLanguage size={36} />
                     Язык лекции:{' '}
-                    <span className='font-bold text-font-hover'>{data.language}</span>
+                    <span className='font-bold text-font-hover'>
+                        {data.language}
+                    </span>
                 </h3>
             </div>
             <div className='flex items-center gap-2 text-2xl'>
-                <h3 className='text-font-secondary flex items-center gap-2'>
+                <h3 className='flex items-center gap-2 text-font-secondary'>
                     <IoPricetagsOutline size={36} />
                     Цена:{' '}
                     <span className='flex items-center font-bold text-font-hover'>

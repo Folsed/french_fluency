@@ -3,7 +3,7 @@ import { IoLogoInstagram } from 'react-icons/io'
 
 const Footer = () => {
     return (
-        <section className='_footer shadow-custom mt-12 border-t border-gray-900 bg-black md:mt-24'>
+        <section className='_footer mt-12 border-t border-gray-900 bg-black shadow-custom md:mt-24'>
             <div className='my-20 flex flex-col gap-4'>
                 <div className='flex items-center justify-center'>
                     <Link

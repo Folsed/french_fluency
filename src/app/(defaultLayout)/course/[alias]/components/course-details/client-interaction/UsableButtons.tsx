@@ -20,7 +20,11 @@ interface ICheckout {
     courseImage: string
 }
 
-const UsableButtons: React.FC<ICheckout> = ({ courseAmount, courseName, courseImage }) => {
+const UsableButtons: React.FC<ICheckout> = ({
+    courseAmount,
+    courseName,
+    courseImage,
+}) => {
     const { modalIs, setModalIs } = WebNavigation()
 
     const paymentModalHandler = () => {
@@ -51,7 +55,11 @@ const UsableButtons: React.FC<ICheckout> = ({ courseAmount, courseName, courseIm
                         appearance: { theme: 'stripe' },
                     }}
                 >
-                    <PaymentModal courseAmount={courseAmount} courseName={courseName} courseImage={courseImage} />
+                    <PaymentModal
+                        courseAmount={courseAmount}
+                        courseName={courseName}
+                        courseImage={courseImage}
+                    />
                 </Elements>
             ) : null}
         </div>
