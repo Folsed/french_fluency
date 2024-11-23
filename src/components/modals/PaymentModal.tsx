@@ -75,7 +75,7 @@ const PaymentModal: React.FC<ICheckout> = ({
             elements,
             clientSecret,
             confirmParams: {
-                return_url: `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/payment-success?COURSE_NAME=${encodeURIComponent(courseName)}&COURSE_AMOUNT=${courseAmount}`,
+                return_url: `${process.env.NEXT_PUBLIC_LIVE_SERVER}/payment-success?COURSE_NAME=${encodeURIComponent(courseName)}&COURSE_AMOUNT=${courseAmount}`,
             },
         })
 
