@@ -6,7 +6,7 @@ export default function HomePage() {
     return (
         <main className='__content'>
             <div className='flex flex-col'>
-                <Hero/>
+                <Hero />
                 <ContentCards />
                 <Reviews />
             </div>

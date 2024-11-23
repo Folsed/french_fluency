@@ -11,7 +11,6 @@ const CoursePage = async ({
     const alias = (await params).alias
     const data = await Course.findOne({ alias: alias })
 
-
     const serializedData = {
         ...data?.toObject(), // Convert the MongoDB document to a plain object
         _id: data?._id.toString(), // Convert the ObjectId to a string

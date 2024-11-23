@@ -13,7 +13,7 @@ const CourseDetails = ({ data }: { data: CourseDocument }) => {
         <section className='w-full overflow-hidden'>
             <div className='mx-auto w-full'>
                 <div className='mb-24 flex flex-col gap-8 lg:gap-16'>
-                    <div className='relative flex h-[15rem] w-full items-center justify-center bg-gray-900 sm:h-[19rem] md:h-[22rem] lg:h-[25rem] xl:h-[27rem] shadow-custom'>
+                    <div className='relative flex h-[15rem] w-full items-center justify-center bg-gray-900 shadow-custom sm:h-[19rem] md:h-[22rem] lg:h-[25rem] xl:h-[27rem]'>
                         <Image
                             src={data.image}
                             alt='User Cover'
@@ -50,9 +50,9 @@ const CourseDetails = ({ data }: { data: CourseDocument }) => {
                                         {paragraphs?.map((item, index) => (
                                             <div
                                                 key={index}
-                                                className='relative flex items-center justify-center text-lg md:justify-normal md:odd:flex-row-reverse text-font-hover'
+                                                className='relative flex items-center justify-center text-lg text-font-hover md:justify-normal md:odd:flex-row-reverse'
                                             >
-                                                <div className='w-[calc(100%-1rem)] rounded border border-slate-700 bg-[#1b1f23] p-4 md:w-[calc(50%-2.5rem)] shadow-custom'>
+                                                <div className='w-[calc(100%-1rem)] rounded border border-slate-700 bg-[#1b1f23] p-4 shadow-custom md:w-[calc(50%-2.5rem)]'>
                                                     <div className=''>
                                                         {item}
                                                     </div>
@@ -66,7 +66,11 @@ const CourseDetails = ({ data }: { data: CourseDocument }) => {
                     </section>
                     <div className='flex max-w-5xl flex-col gap-4 px-2 md:mx-auto'>
                         <Details data={data} />
-                        <UsableButtons courseAmount={data.price} courseName={data.title} courseImage={data.image} />
+                        <UsableButtons
+                            courseAmount={data.price}
+                            courseName={data.title}
+                            courseImage={data.image}
+                        />
                     </div>
                 </div>
             </div>

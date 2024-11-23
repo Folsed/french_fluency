@@ -3,7 +3,7 @@ import './cube.styles.css'
 const Cube = () => {
     return (
         <div className='cube-container'>
-            <div className='cube '>
+            <div className='cube'>
                 <div className='face front shadow-custom'>
                     <span>Bonjour</span>
                 </div>

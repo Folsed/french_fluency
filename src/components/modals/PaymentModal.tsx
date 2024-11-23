@@ -12,7 +12,6 @@ import { Suspense, useEffect, useState } from 'react'
 import { RxCross2 } from 'react-icons/rx'
 import { MdOutlineEuro } from 'react-icons/md'
 import { useSession } from 'next-auth/react'
-import { toast } from 'sonner'
 import { Spinner } from '../UI/Spinner'
 
 interface ICheckout {
@@ -75,7 +74,7 @@ const PaymentModal: React.FC<ICheckout> = ({
             elements,
             clientSecret,
             confirmParams: {
-                return_url: `${process.env.NEXT_PUBLIC_LOCAL_SERVER}/payment-success?COURSE_NAME=${encodeURIComponent(courseName)}&COURSE_AMOUNT=${courseAmount}`,
+                return_url: `${process.env.NEXT_PUBLIC_LIVE_SERVER}/payment-success?COURSE_NAME=${encodeURIComponent(courseName)}&COURSE_AMOUNT=${courseAmount}`,
             },
         })
 
