@@ -12,7 +12,6 @@ import { Suspense, useEffect, useState } from 'react'
 import { RxCross2 } from 'react-icons/rx'
 import { MdOutlineEuro } from 'react-icons/md'
 import { useSession } from 'next-auth/react'
-import { toast } from 'sonner'
 import { Spinner } from '../UI/Spinner'
 
 interface ICheckout {

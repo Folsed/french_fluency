@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
-import React, { Suspense } from 'react'
+import React from 'react'
 import { FaCheck } from 'react-icons/fa6'
 import { MdOutlineEuro } from 'react-icons/md'
 
