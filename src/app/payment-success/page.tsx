@@ -19,7 +19,7 @@ const PaymentSuccessPage = () => {
     }
 
     return (
-        <Suspense fallback={<Spinner />}>
+        <Suspense>
             <div className='flex min-h-[100dvh] flex-col items-center justify-center px-4 py-12 md:px-6 md:py-24 lg:py-32'>
                 <div className='max-w-md space-y-4 text-center'>
                     <div className='inline-flex rounded-full bg-green-400 p-2'>
