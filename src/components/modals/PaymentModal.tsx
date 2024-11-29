@@ -55,7 +55,7 @@ const PaymentModal: React.FC<ICheckout> = ({
         }
 
         fetchPaymentIntent()
-    }, [courseAmount, courseName])
+    }, [])
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
