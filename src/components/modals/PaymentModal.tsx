@@ -8,11 +8,13 @@ import {
     useStripe,
 } from '@stripe/react-stripe-js'
 import Image from 'next/image'
-import { Suspense, useEffect, useState } from 'react'
+import { useState } from 'react'
 import { RxCross2 } from 'react-icons/rx'
 import { MdOutlineEuro } from 'react-icons/md'
 import { useSession } from 'next-auth/react'
 import { Spinner } from '../UI/Spinner'
+import { ConfirmationToken as ConfirmationTokenTypes } from '@stripe/stripe-js'
+import { useRouter } from 'next/navigation'
 
 interface ICheckout {
     courseAmount: number
@@ -28,40 +30,43 @@ const PaymentModal: React.FC<ICheckout> = ({
     const { modalIs, setModalIs } = WebNavigation()
     const stripe = useStripe()
     const elements = useElements()
+    const router = useRouter()
     const { data } = useSession()
 
     const [errorMessage, setErrorMessage] = useState<string>('')
-    const [clientSecret, setClientSecret] = useState<string>('')
     const [loading, setLoading] = useState(false)
 
-    useEffect(() => {
-        const fetchPaymentIntent = async () => {
-            try {
-                const response = await fetch(
-                    `/api/create-payment-intent?COURSE_NAME=${courseName}`,
-                    {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            courseAmount: convertToSubcurrency(courseAmount),
-                        }),
-                    }
-                )
-                const data = await response.json()
-                setClientSecret(data.clientSecret)
-            } catch (error) {
-                console.error('Failed to fetch payment intent', error)
-            }
-        }
+    const fetchPaymentIntent = async (
+        confirmationToken: ConfirmationTokenTypes
+    ) => {
+        try {
+            const response = await fetch(`/api/create-payment-intent`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    courseName: courseName,
+                    courseAmount: convertToSubcurrency(courseAmount),
+                    confirmationTokenId: confirmationToken.id,
+                }),
+            })
 
-        fetchPaymentIntent()
-    }, [])
+            const data = await response.json()
+            if (data.status === 'succeeded') {
+                router.push(
+                    `${process.env.NEXT_PUBLIC_SERVER}/payment-success?COURSE_NAME=${encodeURIComponent(courseName)}&COURSE_AMOUNT=${courseAmount}`
+                )
+            }
+        } catch (error) {
+            console.error('Failed to fetch payment intent', error)
+        }
+    }
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
-        setLoading(true)
 
         if (!stripe || !elements) return
+
+        setLoading(true)
 
         const { error: submitError } = await elements.submit()
         if (submitError) {
@@ -70,18 +75,16 @@ const PaymentModal: React.FC<ICheckout> = ({
             return
         }
 
-        const { error } = await stripe.confirmPayment({
-            elements,
-            clientSecret,
-            confirmParams: {
-                return_url: `${process.env.NEXT_PUBLIC_LIVE_SERVER}/payment-success?COURSE_NAME=${encodeURIComponent(courseName)}&COURSE_AMOUNT=${courseAmount}`,
-            },
-        })
+        const { error, confirmationToken } =
+            await stripe.createConfirmationToken({ elements })
 
         if (error) {
             setErrorMessage(error.message as string)
         }
 
+        await fetchPaymentIntent(confirmationToken as ConfirmationTokenTypes)
+        console.log(elements);
+        
         setLoading(false)
     }
 
@@ -105,7 +108,6 @@ const PaymentModal: React.FC<ICheckout> = ({
                             courseAmount={courseAmount}
                             loading={loading}
                             errorMessage={errorMessage}
-                            clientSecret={clientSecret}
                             stripe={stripe}
                             elements={elements}
                             data={data}
@@ -117,6 +119,59 @@ const PaymentModal: React.FC<ICheckout> = ({
         </div>
     )
 }
+
+const PaymentForm = ({
+    courseAmount,
+    loading,
+    stripe,
+    elements,
+    data,
+    handleSubmit,
+}: {
+    courseName: string
+    courseAmount: number
+    loading: boolean
+    errorMessage: string
+    stripe: any
+    elements: any
+    data: any
+    handleSubmit: (event: React.FormEvent<HTMLFormElement>) => Promise<void>
+}) => (
+    <div className='h-[87.333%] w-[87.333%]'>
+        <h2 className='text-center text-3xl font-extrabold text-gray-800'>
+            Оплата курса
+        </h2>
+        {!stripe || !elements ? (
+            <div className='mt-6 flex w-full justify-center'>
+                <Spinner />
+            </div>
+        ) : (
+            <form onSubmit={handleSubmit} className='flex flex-col gap-6'>
+                <LinkAuthenticationElement
+                    options={{
+                        defaultValues: { email: data?.user?.email || '' },
+                    }}
+                    className='mb-4'
+                />
+                <PaymentElement />
+                <button
+                    disabled={!stripe || loading}
+                    type='submit'
+                    className='mb-14 me-2 flex w-full items-center justify-center rounded-lg bg-black px-5 py-2.5 text-center text-sm font-medium text-font-hover shadow-custom'
+                >
+                    {loading ? (
+                        'Processing...'
+                    ) : (
+                        <div className='flex flex-row items-center'>
+                            Pay {courseAmount}
+                            <MdOutlineEuro />
+                        </div>
+                    )}
+                </button>
+            </form>
+        )}
+    </div>
+)
 
 const Backdrop = ({ onClick }: { onClick: () => void }) => (
     <div
@@ -149,64 +204,6 @@ const CloseButton = ({ onClick }: { onClick: () => void }) => (
     <button onClick={onClick} className='absolute right-4 top-4'>
         <RxCross2 size={24} />
     </button>
-)
-
-const PaymentForm = ({
-    courseName,
-    courseAmount,
-    loading,
-    errorMessage,
-    clientSecret,
-    stripe,
-    elements,
-    data,
-    handleSubmit,
-}: {
-    courseName: string
-    courseAmount: number
-    loading: boolean
-    errorMessage: string
-    clientSecret: string
-    stripe: any
-    elements: any
-    data: any
-    handleSubmit: (event: React.FormEvent<HTMLFormElement>) => Promise<void>
-}) => (
-    <div className='h-[87.333%] w-[87.333%]'>
-        <h2 className='text-center text-3xl font-extrabold text-gray-800'>
-            Оплата курса
-        </h2>
-        {!clientSecret || !stripe || !elements ? (
-            <div className='mt-6 flex w-full justify-center'>
-                <Spinner />
-            </div>
-        ) : (
-            <form onSubmit={handleSubmit} className='flex flex-col gap-6'>
-                <LinkAuthenticationElement
-                    options={{
-                        defaultValues: { email: data?.user?.email || '' },
-                    }}
-                    className='mb-4'
-                />
-                <PaymentElement />
-                {errorMessage && <p className='text-red-600'>{errorMessage}</p>}
-                <button
-                    disabled={!stripe || loading}
-                    type='submit'
-                    className='mb-14 me-2 flex w-full items-center justify-center rounded-lg bg-black px-5 py-2.5 text-center text-sm font-medium text-font-hover shadow-custom'
-                >
-                    {loading ? (
-                        'Processing...'
-                    ) : (
-                        <div className='flex flex-row items-center'>
-                            Pay {courseAmount}
-                            <MdOutlineEuro />
-                        </div>
-                    )}
-                </button>
-            </form>
-        )}
-    </div>
 )
 
 export default PaymentModal

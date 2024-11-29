@@ -34,14 +34,14 @@ const PaymentScreen = () => {
             </div>
             <div className='border-t border-gray-900 bg-black py-24 shadow-custom'>
                 <div className='container mx-auto px-4 md:px-6'>
-                    <div className='mx-auto max-w-md space-y-6'>
+                    <div className='mx-auto max-w-2xl space-y-6'>
                         <div className='flex flex-col gap-4 rounded border border-slate-700 bg-[#1b1f23] p-6'>
                             <h1 className='text-3xl text-font-hover'>
                                 Payment Details
                             </h1>
                             <div className='flex items-center justify-between'>
                                 <div className='text-font-hover'>Курс</div>
-                                <div className='font-medium text-font-secondary'>
+                                <div className='text-end font-medium text-font-secondary'>
                                     {courseName}
                                 </div>
                             </div>
@@ -52,15 +52,43 @@ const PaymentScreen = () => {
                                     <MdOutlineEuro />
                                 </div>
                             </div>
+                            <div className='w-full text-font-secondary'>
+                                <p>
+                                    Спасибо за приобретение моего курса! Я
+                                    искренне рада, что вы решили присоединиться
+                                    к обучению. В ближайшее время я отправлю всю
+                                    необходимую информацию на вашу{' '}
+                                    <span className='font-bold text-font-hover'>
+                                        электронную почту
+                                    </span>
+                                    .
+                                </p>
+                                <br />
+                                <p>
+                                    Если у вас есть какие-либо вопросы, не
+                                    стесняйтесь обращаться ко мне!
+                                </p>
+                                <p>
+                                    Мой телеграм:{' '}
+                                    <Link
+                                        className='font-bold text-font-hover underline underline-offset-4'
+                                        href='https://t.me/tbr_kateryna'
+                                    >
+                                        @tbr_kateryna
+                                    </Link>
+                                </p>
+                            </div>
                         </div>
 
-                        <Link
-                            href='/'
-                            className='inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300'
-                            prefetch={false}
-                        >
-                            На главную
-                        </Link>
+                        <div className='text-end'>
+                            <Link
+                                href='/'
+                                className='inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300'
+                                prefetch={false}
+                            >
+                                На главную
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
