@@ -17,7 +17,7 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-    title: '',
+    title: 'Kateryna Teacher - Преподаватель французского',
     description: '',
 }
 
