@@ -49,6 +49,7 @@ const UsableButtons: React.FC<ICheckout> = ({
                 <Elements
                     stripe={stripePromise}
                     options={{
+
                         mode: 'payment',
                         amount: convertToSubcurrency(courseAmount),
                         currency: 'eur',

@@ -83,6 +83,8 @@ const PaymentModal: React.FC<ICheckout> = ({
         }
 
         await fetchPaymentIntent(confirmationToken as ConfirmationTokenTypes)
+        console.log(elements);
+        
         setLoading(false)
     }
 
@@ -121,7 +123,6 @@ const PaymentModal: React.FC<ICheckout> = ({
 const PaymentForm = ({
     courseAmount,
     loading,
-    errorMessage,
     stripe,
     elements,
     data,
