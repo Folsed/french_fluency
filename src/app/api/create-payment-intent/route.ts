@@ -20,7 +20,6 @@ export const POST = async (request: NextRequest) => {
             confirmation_token: confirmationTokenId,
             return_url: `${process.env.NEXT_PUBLIC_SERVER}/payment-success?COURSE_NAME=${encodeURIComponent(courseName)}&COURSE_AMOUNT=${courseAmount}`,
         })
-        
 
         return NextResponse.json({
             clientSecret: paymentIntent.client_secret,

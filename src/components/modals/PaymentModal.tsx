@@ -83,8 +83,7 @@ const PaymentModal: React.FC<ICheckout> = ({
         }
 
         await fetchPaymentIntent(confirmationToken as ConfirmationTokenTypes)
-        console.log(elements);
-        
+
         setLoading(false)
     }
 
