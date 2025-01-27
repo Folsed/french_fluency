@@ -15,7 +15,7 @@ interface NavigationContextType {
 
 const NavigationContext = createContext<NavigationContextType>({
     modalIs: '',
-    setModalIs: () => {},
+    setModalIs: () => { },
 })
 
 interface NavigationProviderProps {

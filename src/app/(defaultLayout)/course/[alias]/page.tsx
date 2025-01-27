@@ -16,6 +16,8 @@ const CoursePage = async ({
         _id: data?._id.toString(), // Convert the ObjectId to a string
     }
 
+    console.log(serializedData)
+
     return (
         <div className=''>
             <CourseDetails data={serializedData as CourseDocument} />
