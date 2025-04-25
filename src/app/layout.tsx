@@ -1,13 +1,14 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
+import React, { ReactNode } from 'react'
 import Providers from '@/providers/Providers'
 import Header from './components/header/Header'
 import BackToTop from './components/BackToTop'
 import { Toaster } from 'sonner'
 
 interface LayoutProps {
-    children: React.ReactNode
+    children: ReactNode
 }
 
 const roboto = Roboto({
